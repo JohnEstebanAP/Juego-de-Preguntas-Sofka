@@ -10,9 +10,9 @@
 
 
     <color name="primary">#4889FB</color>
-    <color name="primarydarck">#4D4889FB</color>
+    <color name="primarydarck">#4D4889</color>
     <color name="fondo_darck2">#07091F</color>
-    <color name="fondo_darck">#101720l</color>
+    <color name="fondo_darck">#101720</color>
 
     <color name="secundari">#EA804F</color>
     <color name="secundaridarck">#EF550E</color>
