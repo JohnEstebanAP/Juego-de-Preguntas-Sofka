@@ -4,8 +4,7 @@
         android:width="400dp"
         android:height="200dp">
         <shape
-            android:shape="oval"
-            xmlns:android="http://schemas.android.com/apk/res/android">
+            android:shape="oval">
             <padding android:top="60dp">
             </padding>
             <corners
@@ -18,7 +17,7 @@
         </shape>
     </item>
     <item
-        android:gravity="center">
-        <bitmap android:src="@drawable/logotitulo"/>
+        android:gravity="bottom|center">
+          <bitmap android:src="@drawable/logotitulo"/>
     </item>
 </layer-list>

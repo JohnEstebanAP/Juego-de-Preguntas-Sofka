@@ -8,6 +8,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     @Override
@@ -24,6 +27,7 @@ public class SplashScreen extends AppCompatActivity {
         }
         mAuth = FirebaseAuth.getInstance();
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -31,7 +35,7 @@ public class SplashScreen extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
 
         //se inicia el SharedPreferences para verificar si hay un usuario logeado por este medio.
-        SharedPreferences prefs = (SharedPreferences) getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
         String email = prefs.getString("email",null);
         Toast.makeText(this, ""+email, Toast.LENGTH_SHORT).show();
         if (email != null) {
@@ -47,3 +51,4 @@ public class SplashScreen extends AppCompatActivity {
         intent.putExtra("email", email);
         startActivity(intent);
     }
+}

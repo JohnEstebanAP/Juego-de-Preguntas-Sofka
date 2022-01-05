@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1061924213491",
+    "project_id": "locas-preguntas",
+    "storage_bucket": "locas-preguntas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061924213491:android:c893944deb409fe2f25d86",
+        "android_client_info": {
+          "package_name": "com.johnestebanap.juegodepreguntassofka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061924213491-9ahdsk2j3k299k87h41fs1j265rikcc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.johnestebanap.juegodepreguntassofka",
+            "certificate_hash": "e145e9321dd3f2b2f25ad8a7c636a698787d3c09"
+          }
+        },
+        {
+          "client_id": "1061924213491-duva6mhuib2l87d6sd6ciiemlm8rl354.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD23vlpC3SXoUaeFYnfy_54t03z84SDFJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061924213491-duva6mhuib2l87d6sd6ciiemlm8rl354.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

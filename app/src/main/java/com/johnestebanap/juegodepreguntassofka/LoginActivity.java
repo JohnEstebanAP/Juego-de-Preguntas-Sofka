@@ -17,7 +17,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/*
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -29,10 +29,10 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.GoogleAuthProvider;*/
 
 public class LoginActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+  //  private FirebaseAuth mAuth;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 
@@ -44,16 +44,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
         btnEntrar = findViewById(R.id.btn_entrar);
         btnRegistro = findViewById(R.id.registrarse);
         btnGoogle = findViewById(R.id.btn_google);
-
+/*
         btnEntrar.setOnClickListener(view -> loginUser());
         btnRegistro.setOnClickListener(view -> registroUser());
-        btnGoogle.setOnClickListener(view -> loginUserGoogle());
+        btnGoogle.setOnClickListener(view -> loginUserGoogle());*/
     }
-
+/*
     public void loginUserGoogle() {
         //Configuracion
         GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
@@ -168,5 +168,5 @@ public class LoginActivity extends AppCompatActivity {
 
     public void registroUser() {
         startActivity(new Intent(this, RegistroActivity.class));
-    }
+    }*/
 }
