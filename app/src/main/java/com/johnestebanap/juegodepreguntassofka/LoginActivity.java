@@ -1,42 +1,42 @@
 package com.johnestebanap.juegodepreguntassofka;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
+//import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-/*
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
+//import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
+//import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;*/
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
-  //  private FirebaseAuth mAuth;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
 
-    private int GOOGLE_SING_IN = 100;
+    //Se Creo una instancia o un ojeto, de la autenticacion de firevase
+    private FirebaseAuth mAuth;
+
+    //Se Crean las variables para el SharedPreferences
+    /*SharedPreferences preferences;
+    SharedPreferences.Editor editor;*/
+
     Button btnEntrar, btnRegistro, btnGoogle;
 
     @Override
@@ -44,116 +44,127 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //mAuth = FirebaseAuth.getInstance();
+        //a la variable mAuth se Le asina os e inicializa asinandole el ocjeto de La utenticacion de firebase
+        mAuth = FirebaseAuth.getInstance();
+
+        //se ase una conecion o se instacian los botones creados en el Layout con los botones del codigo
         btnEntrar = findViewById(R.id.btn_entrar);
         btnRegistro = findViewById(R.id.registrarse);
         btnGoogle = findViewById(R.id.btn_google);
-/*
+
+        //Landa para catura el clik del boton para verificar las credenciales y entrar al juego
         btnEntrar.setOnClickListener(view -> loginUser());
+        //catura el clik del boton para registrar un usuario nuevo y entrar al juego
         btnRegistro.setOnClickListener(view -> registroUser());
-        btnGoogle.setOnClickListener(view -> loginUserGoogle());*/
+        //catura el clik del boton para registrar un usuario nuevo con la cuneta de google y entrar al juego
+        btnGoogle.setOnClickListener(view -> loginUserGoogle());
     }
-/*
+
     public void loginUserGoogle() {
         //Configuracion
         GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
         googleClient.signOut();
-        startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SING_IN);
+
+      //  Metodo deprecado
+      //  startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SING_IN);   onActivityResult(result)
+        someActivityResultLauncher.launch(googleClient.getSignInIntent());
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            //lambda de new ActivityResultCallback<ActivityResult>()   onActivityResult(result)
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    // There are no request codes
+                    //En este metodo no tenemos el requestCode por lo que no podemos hacer uso de el
+                    //if(requestCode == GOOGLE_SING_IN(100)){
 
-        if (requestCode == GOOGLE_SING_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                if(account != null){
-                    AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
-                    FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener(
-                            new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        showHome(account.getEmail());
-                                    } else {
-                                        showAlertError();
-                                        Log.w("TAG", "Error", task.getException());
+                    Intent data = result.getData();
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                    try {
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        if (account != null) {
+
+                            AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+
+                            //se envia la creencial del correo electronico de google realisaxondun un reguitro de este correo
+                            //si se puede reguistrar o ya esta reguistrado el task.isSuccessful retorna true y pasa al home, si no se puede registrar o verificar la cuenta
+                            // muestra una alerta de error ya que no se pudo autentica al usuario.
+                            FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener(
+                                    //Lambda del metodo OnCompleteListener<Authresult>()
+                                    task1 -> {
+                                        if (task1.isSuccessful()) {
+                                            showHome(account.getEmail());
+                                        } else {
+                                            showAlertError();
+                                            Log.w("TAG", "Error", task1.getException());
+                                        }
                                     }
-                                }
-                            }
-                    );
+                            );
+                        }
+                    } catch (ApiException e) {
+                        e.printStackTrace();
+                        showAlertError();
+                    }
                 }
-            } catch (ApiException e) {
-                e.printStackTrace();
-                showAlertError();
-            }
-
-
-        }
-    }
+            });
 
     public void loginUser() {
+        //Creo las variables para los EditText de Usuario y contraseña
         EditText editTxtUser, ediTxtPassword;
+
+        //se Relisa la intacia o asignacion de los votones con su corespondiente id
         editTxtUser = (EditText) findViewById(R.id.txtUser);
         ediTxtPassword = (EditText) findViewById(R.id.txtPassword);
 
-        String user1 = "sg-sst"; // Nombre Shared
-        String user2 = "empleado";
-        String pass = "123456789"; //Pass Shared
-        String rolUser1 = "1";
-        String rolUser2 = "8";
+        //A las variables se les asina el texto de el Email o usaurio y las contraseña ingresados en las editText
         String email = editTxtUser.getText().toString();
         String password = ediTxtPassword.getText().toString();
 
+        //Comprobamos que la varible email no este basido o sea nula
+        //nota TextUtils.isEmpty es mejor ya que este no jenera Execiones en caso de que la bariable sea nula como lo puede hacer el metodo isNotEmpty()
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Ingrese el Correo electronico", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.inputCorreo, Toast.LENGTH_SHORT).show();
             editTxtUser.requestFocus();
         } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Ingrese una Contraseña", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.input_contraseña, Toast.LENGTH_SHORT).show();
             ediTxtPassword.requestFocus();
         } else {
-            if (user1.equals(email) && pass.equals(password)) {
+          /*  if (user1.equals(email) && pass.equals(password)) {
                 preferences = getSharedPreferences("guest", MODE_PRIVATE);
                 editor = preferences.edit();
-                editor.putString("Name", "sg-sst");
+                editor.putString("Name", "user");
                 editor.putString("Pass", "123456789");
                 editor.putString("rol", "1");
                 editor.commit();
                 showHome(email);
-            } else {
-                if (user2.equals(email) && pass.equals(password)) {
-                    //Toast.makeText(MainActivity.this, "empleado", Toast.LENGTH_SHORT).show();
-                    preferences = getSharedPreferences("guest", MODE_PRIVATE);
-                    editor = preferences.edit();
-                    editor.putString("Name", "empleado");
-                    editor.putString("Pass", "123456789");
-                    editor.putString("rol", "8");
-                    editor.commit();
-                    showHome(email);
-                }else{
-                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(
-                            new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        showHome(email);
-                                    } else {
-                                        showAlertError();
-                                        Log.w("TAG", "Error", task.getException());
-                                    }
-                                }
-                            }
-                    );
-                }
-            }
+            } */
+
+            //se envia el correo y la contraseña para verificar si el correo o el usuairo esta reguistrado
+            //si esta reguistrado el task.isSuccessful retorna true y pasa al home, si no esta reguistrado
+            // muestra una alerta de error ya que no se pudo autentica al usuario.
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(
+                    //Lambda del metodo OnCompleteListener<AuthResult>()
+                    task -> {
+                        if (task.isSuccessful()) {
+                            showHome(email);
+                        } else {
+                            showAlertError();
+                            Log.w("TAG", "Error", task.getException());
+                        }
+                    }
+            );
+
+
         }
     }
 
+    //Metodo para pasar a al activity del Home
     private void showHome(String email) {
+        //se Crea al intent del Home
         Intent intent = new Intent(this, HomeActivity.class);
+        //al intent se le pone un estra que es el email para pasarselo a la activity del Home
         intent.putExtra("email", email);
         startActivity(intent);
     }
@@ -161,12 +172,12 @@ public class LoginActivity extends AppCompatActivity {
     private void showAlertError() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Error");
-        alertDialog.setMessage("Se ha producidoun error autenticando al usuario");
-        alertDialog.setPositiveButton("Aceptar", null);
+        alertDialog.setMessage(R.string.ErrorAuth);
+        alertDialog.setPositiveButton(R.string.aceptar, null);
         alertDialog.create().show();
     }
 
     public void registroUser() {
-        startActivity(new Intent(this, RegistroActivity.class));
-    }*/
+       // startActivity(new Intent(this, RegistroActivity.class));
+    }
 }
