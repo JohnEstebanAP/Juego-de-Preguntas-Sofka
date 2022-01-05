@@ -178,6 +178,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void registroUser() {
-       // startActivity(new Intent(this, RegistroActivity.class));
+        startActivity(new Intent(this, RegistroActivity.class));
     }
 }
