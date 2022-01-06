@@ -10,6 +10,7 @@
 
 
     <color name="primary">#4889FB</color>
+    <color name="primary_light">#88B1F8</color>
     <color name="primarydarck">#4D4889</color>
     <color name="fondo_darck2">#07091F</color>
     <color name="fondo_darck">#101720</color>

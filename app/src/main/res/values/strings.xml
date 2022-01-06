@@ -53,6 +53,13 @@
     <string name="checkboc_registro">Aceptar la opcion de términos y condiciones :)</string>
     <string name="juego">Juego</string>
     <string name="contrasenia_min_8">La contraseña debe tener minimo 8 caracteres</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descrition_home">Locas Preguntas es un juego de preguntas abstractas en el que cuantas más respuestas correctas obtienes mas puntos aras y suviras de nivel volviendose mas difícil.</string>
+    <string name="descripcion_juego">El juego se compone de 5 rondas donde se tendran una serie de preguntas con 4 opciones de respuesta y una de ella válida, Cada respuesta correcta te dará una puntuación de 10.</string>
+    <string name="limpiar_datos">Limpiar Datos</string>
+    <string name="jugar">jugar</string>
+    <string name="imagen_del_home">imagen del home</string>
 
 
 </resources>

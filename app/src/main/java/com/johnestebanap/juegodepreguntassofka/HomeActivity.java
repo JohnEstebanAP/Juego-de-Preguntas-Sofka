@@ -27,6 +27,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.johnestebanap.juegodepreguntassofka.fragments.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -51,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         // El Fragment que se muestra por defecto
         showHome();
 
-        // consigo los extras enviados con el Intent, i verifico que no se un valor nulo o este sasido
+        // consigo los extras enviados con el Intent y verifico que no se un valor nulo o este vasido
         if (getIntent().getExtras().getString("email") != null && !TextUtils.isEmpty(getIntent().getExtras().getString("email"))) {
             String email = getIntent().getExtras().getString("email");
 
@@ -90,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.bnv_game:
-                        showFragmentGame();
+                        showHome();
                         break;
                     case R.id.bnv_ocr:
                         openOcr();
@@ -132,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void showHome() {
-       // getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HomeFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
+       getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HomeFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 
     public void openOcr() {
