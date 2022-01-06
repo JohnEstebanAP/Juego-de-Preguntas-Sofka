@@ -134,23 +134,6 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new GameFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 
-    public void openOcr() {
-       // getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new OcrFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
-    }
-
-    public void showListDocumentos() {
-       // getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new ListDocumentFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
-    }
-
-    private void showAler(String title,String ms) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle(title);
-        alertDialog.setMessage(ms);
-        alertDialog.setPositiveButton("Aceptar", null);
-        alertDialog.setNegativeButton("Canselar",null);
-        alertDialog.create().show();
-    }
-
     //Metodo para mostrar alerta para salir de la app
     private void showAlerSalir() {
         String title = "¿Esta seguro de querer salir?";

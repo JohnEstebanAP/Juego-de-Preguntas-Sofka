@@ -72,6 +72,7 @@
     <string name="confirmar">Confirmar</string>
     <string name="menu">menu</string>
     <string name="historial">historial</string>
+    <string name="confirmar_finalizar_game">Confirmar y Finalizar</string>
 
 
 </resources>

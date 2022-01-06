@@ -1,5 +1,7 @@
 package com.johnestebanap.juegodepreguntassofka.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,17 +52,15 @@ public class HomeFragment extends Fragment {
         //metodo para limpiar o formatiar a 0 los valores
         clearBtn.setOnClickListener(v ->
         {
-
-
             //se asigna a prefe el documento llamado data de sharedPreferences
             SharedPreferences prefe = getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
 
             SharedPreferences.Editor editor = prefe.edit();
             editor.putInt("cont", 1);
-            editor.putInt("correctAnswer", 0);
-            editor.putInt("wrongAnswer", 0);
-            editor.putInt("score", 0);
-            editor.putInt("questionCounter", 1);
+            editor.putInt("respuestaCorrecta", 0);
+            editor.putInt("respuestaIncorrecta", 0);
+            editor.putInt("puntaje", 0);
+            editor.putInt("contPreguntas", 1);
             editor.apply();
 
             Toast.makeText(getContext(), "Datos Limpiados", Toast.LENGTH_SHORT).show();

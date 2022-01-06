@@ -115,8 +115,8 @@ public class LoginActivity extends AppCompatActivity {
         EditText editTxtUser, ediTxtPassword;
 
         //se Relisa la intacia o asignacion de los votones con su corespondiente id
-        editTxtUser = (EditText) findViewById(R.id.txtUser);
-        ediTxtPassword = (EditText) findViewById(R.id.txtPassword);
+        editTxtUser = findViewById(R.id.txtUser);
+        ediTxtPassword = findViewById(R.id.txtPassword);
 
         //A las variables se les asina el texto de el Email o usaurio y las contraseña ingresados en las editText
         String email = editTxtUser.getText().toString();
