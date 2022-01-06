@@ -58,7 +58,6 @@ public class GameFragment extends Fragment {
     private int totalSizeofQuestions = 0;
 
     int puntaje = 0;
-
     int cont = 0;
 
     //Constructor de la Clase GameFragment
@@ -202,8 +201,6 @@ public class GameFragment extends Fragment {
                         rb4.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.option_selected));
 
                         break;
-
-
                 }
 
             }
@@ -215,6 +212,7 @@ public class GameFragment extends Fragment {
                     //se verifica si algun radio buton fue selecionado
                     if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()) {
                        //se verifica si las preguntas estan buenas
+
                         gameOperations();
                     } else {
                         //se muestra un toas sino se seleciona ninguna respuesta
@@ -279,7 +277,6 @@ public class GameFragment extends Fragment {
                                 getActivity().finish();
                             }
                         }, 5000);
-
                     }
                 }
             }, 500);
@@ -290,14 +287,8 @@ public class GameFragment extends Fragment {
             if (cont < 5) {
                 //se incrementa la categoría
                 cont++;
-
-                SharedPreferences.Editor editor = getActivity().getSharedPreferences("datos", MODE_PRIVATE).edit();
-                editor.putInt("cont", cont);
-                editor.putInt("respuestaCorrecta", respuestaCorrecta);
-                editor.putInt("respuestaIncorrecta", respuestaIncorrecta);
-                editor.putInt("puntaje", puntaje);
-                editor.putInt("contPreguntas", 1);
-                editor.apply();
+                //se guarda el historial
+                guardarhistorial();
 
                 //Recargamos nuevamente el Fragment del GameFragment y seguimos con la sigiente pregunta o pasa a la siguiente categoría
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -326,15 +317,16 @@ public class GameFragment extends Fragment {
 
                     rb1.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.correct_answer));
                     respuestaCorrecta++;//cuenta el numero de preguntas buenas y se lo agrega , en la línea de abajo, al textview
-                    txtvwCorrecto.setText("Correct: " + String.valueOf(respuestaCorrecta));
+                    txtvwCorrecto.setText("Correctas: " + String.valueOf(respuestaCorrecta));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje)); //se le asigna el valor del score al textview
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje)); //se le asigna el valor del score al textview
 
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions(); // el método showquestions se llama en cada if y else ya que se necesita que se actulice de nuevo todas las preguntas y se muestren en la activity
                         }
                     }, 1000);
@@ -344,13 +336,14 @@ public class GameFragment extends Fragment {
                     rbSelected.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.wrong_answer));
 
                     respuestaIncorrecta++;// cuenta el numero de preguntas malas y se lo agrega , en la línea de abajo, al textview
-                    txtvwIncorrecto.setText("Wrong: " + String.valueOf(respuestaIncorrecta));
+                    txtvwIncorrecto.setText("Incorrectas: " + String.valueOf(respuestaIncorrecta));
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -363,15 +356,16 @@ public class GameFragment extends Fragment {
                     rb2.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.correct_answer));
 
                     respuestaCorrecta++;
-                    txtvwCorrecto.setText("Correct: " + String.valueOf(respuestaCorrecta));
+                    txtvwCorrecto.setText("Correctas: " + String.valueOf(respuestaCorrecta));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -379,14 +373,15 @@ public class GameFragment extends Fragment {
                     // la pregunta es incorecto cabiamos el background del radiobuton
                     rbSelected.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.wrong_answer));
                     respuestaIncorrecta++;
-                    txtvwIncorrecto.setText("Wrong: " + String.valueOf(respuestaIncorrecta));
+                    txtvwIncorrecto.setText("Incorrectas: " + String.valueOf(respuestaIncorrecta));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -397,15 +392,16 @@ public class GameFragment extends Fragment {
                     rb3.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.correct_answer));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
 
                     respuestaCorrecta++;
-                    txtvwCorrecto.setText("Correct: " + String.valueOf(respuestaCorrecta));
+                    txtvwCorrecto.setText("Correctas: " + String.valueOf(respuestaCorrecta));
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -413,14 +409,15 @@ public class GameFragment extends Fragment {
                     // la pregunta es incorecto cabiamos el background del radiobuton
                     rbSelected.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.wrong_answer));
                     respuestaIncorrecta++;
-                    txtvwIncorrecto.setText("Wrong: " + String.valueOf(respuestaIncorrecta));
+                    txtvwIncorrecto.setText("Incorrectas: " + String.valueOf(respuestaIncorrecta));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -431,15 +428,16 @@ public class GameFragment extends Fragment {
                     rb4.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.correct_answer));
 
                     respuestaCorrecta++;
-                    txtvwCorrecto.setText("Correct: " + String.valueOf(respuestaCorrecta));
+                    txtvwCorrecto.setText("Correctas: " + String.valueOf(respuestaCorrecta));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -447,14 +445,15 @@ public class GameFragment extends Fragment {
                     // la pregunta es incorecto cabiamos el background del radiobuton
                     rbSelected.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.wrong_answer));
                     respuestaIncorrecta++;
-                    txtvwIncorrecto.setText("Wrong: " + String.valueOf(respuestaIncorrecta));
+                    txtvwIncorrecto.setText("Incorrectas: " + String.valueOf(respuestaIncorrecta));
 
                     puntaje = (respuestaCorrecta * 20) - (respuestaIncorrecta * 5);
-                    txtvwPuntaje.setText("Score: " + String.valueOf(puntaje));
+                    txtvwPuntaje.setText("Puntos: " + String.valueOf(puntaje));
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -475,5 +474,8 @@ public class GameFragment extends Fragment {
         editor.putInt("puntaje", puntaje);
         editor.putInt("contPreguntas", 1);
         editor.apply();
+
+
+        Toast.makeText(getContext(), "Guardar historial", Toast.LENGTH_SHORT).show();
     }
 }
