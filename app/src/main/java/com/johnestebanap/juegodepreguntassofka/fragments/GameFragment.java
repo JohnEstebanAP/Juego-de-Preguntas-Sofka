@@ -270,9 +270,21 @@ public class GameFragment extends Fragment {
                         // cuando se llega al final del juego, se lanzara lo escrito en la clase
                         //FinalScoreDialog, la cual muestra un alertDialog con el puntaje total obtenido
                         puntajeFianalDialog.puntajeFianal(respuestaCorrecta, respuestaIncorrecta, 25);
+
+                        //si la categoria ya supera los 5 entonces se deve serrar el activity
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getContext(), "cerrada y recargada", Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
+                            }
+                        }, 5000);
+
                     }
                 }
             }, 500);
+
+
 
             // se verifica que la categoria no sea la ultima para mandarle los datos  de las preguntas buenas, malas y puntaje a la siguiente categoría
             if (cont < 5) {

@@ -4,14 +4,17 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PuntajeFianalDialog {
     private Context mContext;
     private Dialog finalScoreDialog;
     TextView txtvwFinalScore;
-
+    private Handler handler = new Handler();
 
     public PuntajeFianalDialog(Context mContext) {
         this.mContext = mContext;
@@ -26,22 +29,47 @@ public class PuntajeFianalDialog {
 
         finalScoreValidations( correctAns, wrongAns, totalSize);
 
+        /*
         btn_finalScore.setOnClickListener(view -> //al darle click al botón "ok", al finalizar la ronda, se cerrará el alert dialog y se llevará de nuevo a la explaining Activity
         {
-            finalScoreDialog.dismiss();
+            finalizar();
+        });*/
 
-            //se Crea al intent del Home
-            Intent intent = new Intent(mContext, HomeActivity.class);
-            //al intent se le pone un estra que es el email para pasarselo a la activity del Home
-            intent.putExtra("email", "email");
-            mContext.startActivity(intent);
-
-
-        });
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finalizar();
+            }
+        }, 4500);
 
         finalScoreDialog.show();
         finalScoreDialog.setCancelable(false);//se pone falso ya que no se desea cancelar al apretar por ejemplo, el botón de atrás
         finalScoreDialog.setCanceledOnTouchOutside(false);//esto indica que el cuadro de diálogo no se cerrará si se clickea en otra parte
+
+    }
+
+
+    private void finalizar(){
+        finalScoreDialog.dismiss();
+
+
+        //Formateo los datos
+        //se asigna a prefe el documento llamado data de sharedPreferences
+        SharedPreferences prefe = mContext.getSharedPreferences("datos", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = prefe.edit();
+        editor.putInt("cont", 1);
+        editor.putInt("respuestaCorrecta", 0);
+        editor.putInt("respuestaIncorrecta", 0);
+        editor.putInt("puntaje", 0);
+        editor.putInt("contPreguntas", 1);
+        editor.apply();
+
+        //se Crea al intent del Home
+        Intent intent = new Intent(mContext, HomeActivity.class);
+        //al intent se le pone un estra que es el email para pasarselo a la activity del Home
+        intent.putExtra("email", "email");
+        mContext.startActivity(intent);
 
     }
 

@@ -129,38 +129,37 @@ public class DbHelper extends SQLiteOpenHelper
         addQuestions(q15);
 
 
-
         //Logica
-        Questions q16= new Questions("¿Cual es una sentencia de contro que permite que el código se ejecute repetidamente (Blucle) en java?","far()","if()","while()","try()",3,"Logica");
+        Questions q16= new Questions("¿Qué parentesco tiene conmigo el hermano de mi padre?","Es mi tío","Hermano","Es Mi Padre","Es Mi Primo",1,"Logica");
         addQuestions(q16);
 
-        Questions q17= new Questions("¿La estructura condicional más simple en java es?","if()","switch()","for()","foreach()",1,"Logica");
+        Questions q17= new Questions("¿Qué letra pasa de ser una consonante a una vocal con tan solo darle la vuelta?","la u","La n","a","La e",2,"Logica");
         addQuestions(q17);
 
-        Questions q18= new Questions("¿Proceso de diseñar, codificar, depurar y mantener el código fuente de programas computacionales?","Compilación","Programación","Hardware","Software",2,"Logica");
+        Questions q18= new Questions("¿Qué pesa más un kilo de plumas o de plomo?","El Plomo","Las Plumas","Ambos pesan lo mismo","Ninguno de los dos",3,"Logica");
         addQuestions(q18);
 
-        Questions q19= new Questions("Lenguaje formal diseñado para expresar procesos que pueden ser llevados a cabo por máquinas como las computadoras.","Variables","Storyboard","Lenguaje de programación","Diseño de Flujo",3,"Logica");
+        Questions q19= new Questions("Un tren eléctrico viaja de Madrid a Barcelona, ¿hacia dónde va el humo del tren?","Hacia el Norte","Hacia atras","Hacia adelante","Hacia ningún lado",4,"Logica");
         addQuestions(q19);
 
-        Questions q20= new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.","Diagramas de flujo","Storyboard","Pseudocódigo","Lenguaje de programación",1,"Logica");
+        Questions q20= new Questions("Algunos meses tienen 30 días, otros 31. ¿Cuántos tienen 28 días?","Todos los meses","2 meses","1 Mes","5 Meses",1,"Logica");
         addQuestions(q20);
 
 
         //Historia
-        Questions q21= new Questions("¿Cual es una sentencia de contro que permite que el código se ejecute repetidamente (Blucle) en java?","far()","if()","while()","try()",3,"Historia");
+        Questions q21= new Questions("¿Cual es  la o el primera programador de la historia?","Alan turing","Ada King Lovelace","Linus torvalds","Willemina Fleming",2,"Historia");
         addQuestions(q21);
 
-        Questions q22= new Questions("¿La estructura condicional más simple en java es?","if()","switch()","for()","foreach()",1,"Historia");
+        Questions q22= new Questions("¿Cuál fue el primer ordenador de la historia? ","ENIAC","IBM PC 5150","Commodore 64","Apple I",1,"Historia");
         addQuestions(q22);
 
-        Questions q23= new Questions("¿Proceso de diseñar, codificar, depurar y mantener el código fuente de programas computacionales?","Compilación","Programación","Hardware","Software",2,"Historia");
+        Questions q23= new Questions("Es considerado uno de los padres de la ciencia de la computación y precursor de la informática moderna.","Ada Lovelace","Adela Katz","Alan Mathison Turing","John von Neumann",3,"Historia");
         addQuestions(q23);
 
-        Questions q24= new Questions("Lenguaje formal diseñado para expresar procesos que pueden ser llevados a cabo por máquinas como las computadoras.","Variables","Storyboard","Lenguaje de programación","Diseño de Flujo",3,"Historia");
+        Questions q24= new Questions("¿Quiem diseñó el programa informático que se utilizó en la misión Apolo 11?","Charles Babbage","Ada Lovelace","Adela Katz","Margaret Hamilton",4,"Historia");
         addQuestions(q24);
 
-        Questions q25= new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.","Diagramas de flujo","Storyboard","Pseudocódigo","Lenguaje de programación",1,"Historia");
+        Questions q25= new Questions("¿Quién es llamado el padre de la computación?","Charles Babbage","Adela Katz","Ada Lovelace","Willemina Fleming",1,"Historia");
         addQuestions(q25);
 
     }
