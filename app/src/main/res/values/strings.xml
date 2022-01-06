@@ -20,11 +20,34 @@
     <string name="formulario_de_registro">Formulario de registro</string>
     <string name="seleccionar_rol">Seleccionar rol</string>
 
+    <!-- alertas de registro -->
+    <string name="completar_correo">por favor completar el campo del correo electronico</string>
+    <string name="completar_contasenia">por favor completar el campo de la contraseña</string>
+    <string name="completar_nombre">por favor completar el campo del nombre</string>
+    <string name="completar_apellido">por favor completar el campo del apellido</string>
+
+
+    <!-- showAlertExito de registro -->
+    <string name="datos_registrados">Datos registrados</string>
+    <string name="felicidades">¡Felicidades!</string>
+    <string name="regsitro_exitoso">Registro exitoso</string>
+
+
+    <!-- showAlertError de registro -->
+    <string name="aceptar">Aceptar</string>
+    <string name="error">Error</string>
+    <string name="alert_error">Se ha producidoun error autenticando al usuario</string>
+
+    <!-- showAlertDialog Rol Reguistro -->
+
+
     <!--Nombre de los SharedPreferences-->
     <string name="prefs_file">com.johnestebanap.myapplication.PREFERENCE_FILE_KEY</string>
     <string name="imagen_de_titulo">Imagen de titulo</string>
     <string name="inputCorreo">Ingrese el Correo electronico</string>
     <string name="input_contraseña">Ingrese una Contraseña</string>
     <string name="ErrorAuth">Se ha producidoun error autenticando al usuario</string>
-    <string name="aceptar">Aceptar</string>
+    <string name="checkboc_registro">Selecionar esta opcion :)</string>
+
+
 </resources>

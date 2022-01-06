@@ -104,19 +104,6 @@
                 android:inputType="textPersonName"
                 android:paddingHorizontal="10dp" />
 
-            <TextView
-                android:id="@+id/TxvSelectRole"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/new_style"
-                android:elevation="5dp"
-                android:paddingHorizontal="10dp"
-                android:text="@string/seleccionar_rol"
-                android:textSize="20sp"/>
-
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="match_parent"
