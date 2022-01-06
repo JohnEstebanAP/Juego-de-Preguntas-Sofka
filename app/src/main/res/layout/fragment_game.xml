@@ -22,12 +22,13 @@
         android:id="@+id/puntaje_game"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/puntaje_game"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintEnd_toStartOf="@+id/respuesta_correcta_game"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questions_count" />
 
@@ -40,7 +41,6 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.429"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questions_count" />
 
@@ -48,13 +48,14 @@
         android:id="@+id/respuestas_incorrectas_game"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/respestas_incorrectas_game"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/respuesta_correcta_game"
         app:layout_constraintTop_toBottomOf="@+id/questions_count" />
 
     <TextView

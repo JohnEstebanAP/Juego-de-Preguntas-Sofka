@@ -41,9 +41,9 @@ public class HomeFragment extends Fragment {
 
         //boton para iniciar el juego y pasar al fragment del juego
         play.setOnClickListener(v -> {
-          /*  FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new ListDocumentFragment());
-            fragmentTransaction.commit();*/
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new GameFragment());
+            fragmentTransaction.commit();
         });
 
         clearBtn = view.findViewById(R.id.btn_clear);

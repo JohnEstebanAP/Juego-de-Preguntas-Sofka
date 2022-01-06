@@ -29,6 +29,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.johnestebanap.juegodepreguntassofka.fragments.GameFragment;
 import com.johnestebanap.juegodepreguntassofka.fragments.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -92,13 +93,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.bnv_game:
+                    case R.id.bnv_menu:
                         showHome();
                         break;
-                    case R.id.bnv_ocr:
-                        openOcr();
+                    case R.id.bnv_game:
+                        showGame();
                         break;
-                    case R.id.bnv_qr:
+                    case R.id.bnv_historial:
                         //showQr();
                         break;
                 }
@@ -128,6 +129,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void showHome() {
        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HomeFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
+    }
+    public void showGame() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new GameFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 
     public void openOcr() {

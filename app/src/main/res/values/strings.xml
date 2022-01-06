@@ -70,6 +70,8 @@
     <string name="respuesta_3">Respuesta 3</string>
     <string name="respuesta_4">Respuesta 4</string>
     <string name="confirmar">Confirmar</string>
+    <string name="menu">menu</string>
+    <string name="historial">historial</string>
 
 
 </resources>
