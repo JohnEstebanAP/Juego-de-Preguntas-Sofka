@@ -122,11 +122,46 @@ public class DbHelper extends SQLiteOpenHelper
         Questions q13= new Questions("¿Proceso de diseñar, codificar, depurar y mantener el código fuente de programas computacionales?","Compilación","Programación","Hardware","Software",2,"Programacion");
         addQuestions(q13);
 
-        Questions q14= new Questions("Lenguaje formal diseñado para expresar procesos que pueden ser llevados a cabo por máquinas como las computadoras.","Variables","Storyboard","Lenguaje de programación","Diseño de Flujo",3,"History");
+        Questions q14= new Questions("Lenguaje formal diseñado para expresar procesos que pueden ser llevados a cabo por máquinas como las computadoras.","Variables","Storyboard","Lenguaje de programación","Diseño de Flujo",3,"Programacion");
         addQuestions(q14);
 
-        Questions q15= new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.","Diagramas de flujo","Storyboard","Pseudocódigo","Lenguaje de programación",1,"History");
+        Questions q15= new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.","Diagramas de flujo","Storyboard","Pseudocódigo","Lenguaje de programación",1,"Programacion");
         addQuestions(q15);
+
+
+
+        //Logica
+        Questions q16= new Questions("¿Cual es una sentencia de contro que permite que el código se ejecute repetidamente (Blucle) en java?","far()","if()","while()","try()",3,"Logica");
+        addQuestions(q16);
+
+        Questions q17= new Questions("¿La estructura condicional más simple en java es?","if()","switch()","for()","foreach()",1,"Logica");
+        addQuestions(q17);
+
+        Questions q18= new Questions("¿Proceso de diseñar, codificar, depurar y mantener el código fuente de programas computacionales?","Compilación","Programación","Hardware","Software",2,"Logica");
+        addQuestions(q18);
+
+        Questions q19= new Questions("Lenguaje formal diseñado para expresar procesos que pueden ser llevados a cabo por máquinas como las computadoras.","Variables","Storyboard","Lenguaje de programación","Diseño de Flujo",3,"Logica");
+        addQuestions(q19);
+
+        Questions q20= new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.","Diagramas de flujo","Storyboard","Pseudocódigo","Lenguaje de programación",1,"Logica");
+        addQuestions(q20);
+
+
+        //Historia
+        Questions q21= new Questions("¿Cual es una sentencia de contro que permite que el código se ejecute repetidamente (Blucle) en java?","far()","if()","while()","try()",3,"Historia");
+        addQuestions(q21);
+
+        Questions q22= new Questions("¿La estructura condicional más simple en java es?","if()","switch()","for()","foreach()",1,"Historia");
+        addQuestions(q22);
+
+        Questions q23= new Questions("¿Proceso de diseñar, codificar, depurar y mantener el código fuente de programas computacionales?","Compilación","Programación","Hardware","Software",2,"Historia");
+        addQuestions(q23);
+
+        Questions q24= new Questions("Lenguaje formal diseñado para expresar procesos que pueden ser llevados a cabo por máquinas como las computadoras.","Variables","Storyboard","Lenguaje de programación","Diseño de Flujo",3,"Historia");
+        addQuestions(q24);
+
+        Questions q25= new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.","Diagramas de flujo","Storyboard","Pseudocódigo","Lenguaje de programación",1,"Historia");
+        addQuestions(q25);
 
     }
 
