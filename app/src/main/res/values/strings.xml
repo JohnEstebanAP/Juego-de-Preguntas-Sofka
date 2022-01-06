@@ -61,6 +61,15 @@
     <string name="jugar">jugar</string>
     <string name="imagen_del_home">imagen del home</string>
     <string name="onbackpressed_exit">presiona dos veces para salir de la app</string>
+    <string name="puntaje_game">Puntaje</string>
+    <string name="respuestas_correctas_game">Correctas</string>
+    <string name="respestas_incorrectas_game">incorrectas</string>
+    <string name="preguntas_game">Pregunta</string>
+    <string name="respuesta_1">Respuesta 1</string>
+    <string name="respuesta_2">Respuesta 2</string>
+    <string name="respuesta_3">Respuesta 3</string>
+    <string name="respuesta_4">Respuesta 4</string>
+    <string name="confirmar">Confirmar</string>
 
 
 </resources>

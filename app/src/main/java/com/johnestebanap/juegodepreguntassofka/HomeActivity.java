@@ -170,13 +170,19 @@ public class HomeActivity extends AppCompatActivity {
         */
     }
 
+    //Contador pra medir los milesegundos
     long count1 = 0;
     @Override
     public void onBackPressed() {
+
+        //condifison qeu verifica si el el valor 2000 es mayor a los milisegundos del sistema
        if (count1 + 2000 > System.currentTimeMillis()) {
+           //close app
             super.finishAffinity();
         } else {
+
             Toast.makeText(this, getString(R.string.onbackpressed_exit), Toast.LENGTH_SHORT).show();
+            // se formatea el contador
             count1 = System.currentTimeMillis();
         }
     }
