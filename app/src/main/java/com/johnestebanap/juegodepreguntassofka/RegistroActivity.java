@@ -51,15 +51,19 @@ public class RegistroActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, R.string.completar_contasenia, Toast.LENGTH_SHORT).show();
             editContrasenia.requestFocus();
+
+        } else if(password.length()<8){
+            Toast.makeText(this, R.string.contrasenia_min_8, Toast.LENGTH_SHORT).show();
+            editContrasenia.requestFocus();
         } else if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, R.string.completar_nombre, Toast.LENGTH_SHORT).show();
             editTextNombre.requestFocus();
         } else if (TextUtils.isEmpty(apellido)) {
             Toast.makeText(this, R.string.completar_apellido, Toast.LENGTH_SHORT).show();
             editTextApellido.requestFocus();
-        } else if (checkBox.isChecked()) {
+        } else if (!checkBox.isChecked()) {
             Toast.makeText(this, R.string.checkboc_registro, Toast.LENGTH_SHORT).show();
-            editTextApellido.requestFocus();
+            checkBox.requestFocus();
         } else {
             mAuth.createUserWithEmailAndPassword(emailUser, password).addOnCompleteListener(
                     task -> {

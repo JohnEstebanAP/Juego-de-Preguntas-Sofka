@@ -37,7 +37,8 @@ public class SplashScreen extends AppCompatActivity {
         //se inicia el SharedPreferences para verificar si hay un usuario logeado por este medio.
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
         String email = prefs.getString("email",null);
-        Toast.makeText(this, ""+email, Toast.LENGTH_SHORT).show();
+
+        //verificar si ya hay una cuenta guardada con anterioridad
         if (email != null) {
             showHome(email);
         } else {

@@ -38,7 +38,10 @@
     <string name="error">Error</string>
     <string name="alert_error">Se ha producidoun error autenticando al usuario</string>
 
-    <!-- showAlertDialog Rol Reguistro -->
+
+    <!--Menu de navegacion superior-->
+    <string name="open_nav">Open navigation drawer</string>
+    <string name="close_nav">Close navigation drawer</string>
 
 
     <!--Nombre de los SharedPreferences-->
@@ -47,7 +50,9 @@
     <string name="inputCorreo">Ingrese el Correo electronico</string>
     <string name="input_contraseña">Ingrese una Contraseña</string>
     <string name="ErrorAuth">Se ha producidoun error autenticando al usuario</string>
-    <string name="checkboc_registro">Selecionar esta opcion :)</string>
+    <string name="checkboc_registro">Aceptar la opcion de términos y condiciones :)</string>
+    <string name="juego">Juego</string>
+    <string name="contrasenia_min_8">La contraseña debe tener minimo 8 caracteres</string>
 
 
 </resources>

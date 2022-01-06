@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnv_ocr"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:title="Carnet"/>
+    <item
+        android:id="@+id/bnv_game"
+        android:enabled="true"
+        android:icon="@drawable/ic_videogame_asset_24"
+        android:title="@string/juego"/>
+    <item
+        android:id="@+id/bnv_qr"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:title="Scaner qr"/>
+</menu>
