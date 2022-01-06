@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -26,6 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.johnestebanap.juegodepreguntassofka.fragments.HomeFragment;
 
@@ -116,14 +118,6 @@ public class HomeActivity extends AppCompatActivity {
     private void showFragmentGame() {
     }
 
-    @Override
-    public void onBackPressed() {
-        String url = "";
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.putExtra("url",url);
-        startActivity(intent);
-    }
-
     public void closeAndDelogearse() {
         Toast.makeText(this, "sesión cerrada", Toast.LENGTH_SHORT).show();
         //borrar datos de secion
@@ -174,5 +168,16 @@ public class HomeActivity extends AppCompatActivity {
         super.finishAffinity();//Serar la aplicacion completa
         super.finishAndRemoveTask();//finalisar la actividad y remover en la vasurera para que no quede abierta en segundo plano
         */
+    }
+
+    long count1 = 0;
+    @Override
+    public void onBackPressed() {
+       if (count1 + 2000 > System.currentTimeMillis()) {
+            super.finishAffinity();
+        } else {
+            Toast.makeText(this, getString(R.string.onbackpressed_exit), Toast.LENGTH_SHORT).show();
+            count1 = System.currentTimeMillis();
+        }
     }
 }

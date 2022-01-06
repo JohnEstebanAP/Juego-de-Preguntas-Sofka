@@ -60,6 +60,7 @@
     <string name="limpiar_datos">Limpiar Datos</string>
     <string name="jugar">jugar</string>
     <string name="imagen_del_home">imagen del home</string>
+    <string name="onbackpressed_exit">presiona dos veces para salir de la app</string>
 
 
 </resources>
