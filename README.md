@@ -32,6 +32,23 @@ cargando con fluidez y elegancia, también tenemos un Menú de opciones y un Men
 la lavegavilida dentro de la app para el usuario,También tiene un distintivo icono de la aplicación para poder distinguir la aplicación, con su elegante modo Noche, ya que es como mas utilizo mi celular.
 
 
+Material de apollo con el que desarrolle la app, recursos y tutoriales de youtube.
+
+
+<div>Iconos obtenidos de: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+
+
+<div>Videos de Youtube: <a href="https://www.youtube.com/watch?v=0ainJTjzwqQ">Multiple Choice Quiz App with SQLite Integration Part 1 - Show case of the App - Android Tutorial</a> de <a href="https://www.youtube.com/watch?v=0ainJTjzwqQ">Dino Code Academy</a> 
+
+
+<div>Videos de Youtube: <a href="https://www.youtube.com/watch?v=dpURgJ4HkMk">Dino Code Academy</a> de <a href="https://www.youtube.com/watch?v=dpURgJ4HkMk"> MoureDev by Brais Moure</a></div>
+
+
+
+<div>Videos de Youtube: <a href="https://www.youtube.com/watch?v=xjsgRe7FTCU">LOGIN Android Studio (Google Sign In) 🔥 FIREBASE Login Android [2020]</a> de <a href="https://www.youtube.com/watch?v=xjsgRe7FTCU"> MoureDev by Brais Moure</a></div>
+  
+#IMAGENES
+
 <a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-184950.png" align="left" height="600" width="300" ></a>
 <a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185009.png" align="left" height="600" width="300" ></a>
 <a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185017.png" align="left" height="600" width="300" ></a>
