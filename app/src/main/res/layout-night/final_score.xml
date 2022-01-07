@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
+    android:background="@color/fondo_darck"
     android:gravity="center"
     >
     <LinearLayout
@@ -32,7 +33,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:padding="20dp"/>
         <TextView
             android:id="@+id/txtvw_incorrectas"
@@ -40,7 +41,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:padding="20dp"/>
     </LinearLayout>
     <TextView
@@ -50,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:padding="20dp"/>
     <TextView
         android:id="@+id/txtvw_puntaje_final"
@@ -58,7 +59,7 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:padding="20dp"/>
 
 
@@ -68,6 +69,7 @@
         android:background="@drawable/new_button"
         android:layout_gravity="center"
         android:layout_margin="20dp"
+        android:textColor="@color/white"
         android:text="@string/ok"
         android:textSize="20sp"
         android:layout_height="wrap_content"/>
