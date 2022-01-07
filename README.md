@@ -32,7 +32,7 @@ cargando con fluidez y elegancia, también tenemos un Menú de opciones y un Men
 la lavegavilida dentro de la app para el usuario,También tiene un distintivo icono de la aplicación para poder distinguir la aplicación, con su elegante modo Noche, ya que es como mas utilizo mi celular.
 
 
-Material de apollo con el que desarrolle la app, recursos y tutoriales de youtube.
+Material de apoyo con el que desarrolle la app, recursos y tutoriales de youtube.
 
 
 <div>Iconos obtenidos de: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
@@ -47,6 +47,9 @@ Material de apollo con el que desarrolle la app, recursos y tutoriales de youtub
 
 <div>Videos de Youtube: <a href="https://www.youtube.com/watch?v=xjsgRe7FTCU">LOGIN Android Studio (Google Sign In) 🔥 FIREBASE Login Android [2020]</a> de <a href="https://www.youtube.com/watch?v=xjsgRe7FTCU"> MoureDev by Brais Moure</a></div>
   
+  
+  
+<br>
 #IMAGENES
 
 <a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-184950.png" align="left" height="600" width="300" ></a>
