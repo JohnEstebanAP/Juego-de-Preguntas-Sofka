@@ -255,7 +255,7 @@ public class GameFragment extends Fragment {
 
             txtvwContPreguntas.setText("Pegunta : " + contPreguntas + "/" + questionTotalCount);
             //Se guarda el historial del las pregunta actual, puntaje, preguntas correctas e incorrectas.
-            guardarhistorial();
+            guardarHistorial(contPreguntas);
 
         } else
         //si no, sse devuelve de nuevo a la actividad
@@ -290,7 +290,7 @@ public class GameFragment extends Fragment {
                 //se incrementa la categoría
                 cont++;
                 //se guarda el historial
-                guardarhistorialcategoria();
+                guardarHistorial(1);
 
                 //Recargamos nuevamente el Fragment del GameFragment y seguimos con la sigiente pregunta o pasa a la siguiente categoría
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -457,10 +457,8 @@ public class GameFragment extends Fragment {
         }
     } // en este método se analiza las respuestas malas o buenas para cada pregunta
 
-
-
     // se guarda el historial o estado de la variables como categoria, respuestas, puntaje cundo el usario dese salir para recuperas su estado cundo inicie secion
-    public void guardarhistorial() {
+    public void guardarHistorial(int contPreguntas) {
         SharedPreferences.Editor editor = getActivity().getSharedPreferences("datos", MODE_PRIVATE).edit();
         editor.putInt("cont", cont);
         editor.putInt("respuestaCorrecta", respuestaCorrecta);
@@ -468,23 +466,5 @@ public class GameFragment extends Fragment {
         editor.putInt("puntaje", puntaje);
         editor.putInt("contPreguntas", contPreguntas);
         editor.apply();
-
-
-        Toast.makeText(getContext(), "Guardar historial", Toast.LENGTH_SHORT).show();
-    }
-
-
-    // se guarda el historial o estado de la variables como categoria, respuestas, puntaje cundo el usario dese salir para recuperas su estado cundo inicie secion
-    public void guardarhistorialcategoria() {
-        SharedPreferences.Editor editor = getActivity().getSharedPreferences("datos", MODE_PRIVATE).edit();
-        editor.putInt("cont", cont);
-        editor.putInt("respuestaCorrecta", respuestaCorrecta);
-        editor.putInt("respuestaIncorrecta", respuestaIncorrecta);
-        editor.putInt("puntaje", puntaje);
-        editor.putInt("contPreguntas", 1);
-        editor.apply();
-
-
-        Toast.makeText(getContext(), "Guardar historial", Toast.LENGTH_SHORT).show();
     }
 }
