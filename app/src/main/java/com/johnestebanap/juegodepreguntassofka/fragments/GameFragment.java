@@ -254,6 +254,8 @@ public class GameFragment extends Fragment {
             buttonNext.setText("Confirmar");
 
             txtvwContPreguntas.setText("Pegunta : " + contPreguntas + "/" + questionTotalCount);
+            //Se guarda el historial del las pregunta actual, puntaje, preguntas correctas e incorrectas.
+            guardarhistorial();
 
         } else
         //si no, sse devuelve de nuevo a la actividad
@@ -288,7 +290,7 @@ public class GameFragment extends Fragment {
                 //se incrementa la categoría
                 cont++;
                 //se guarda el historial
-                guardarhistorial();
+                guardarhistorialcategoria();
 
                 //Recargamos nuevamente el Fragment del GameFragment y seguimos con la sigiente pregunta o pasa a la siguiente categoría
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -326,7 +328,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions(); // el método showquestions se llama en cada if y else ya que se necesita que se actulice de nuevo todas las preguntas y se muestren en la activity
                         }
                     }, 1000);
@@ -343,7 +344,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -365,7 +365,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -381,7 +380,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -401,7 +399,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -417,7 +414,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -437,7 +433,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -453,7 +448,6 @@ public class GameFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            guardarhistorial();
                             showQuestions();
                         }
                     }, 1000);
@@ -467,6 +461,21 @@ public class GameFragment extends Fragment {
 
     // se guarda el historial o estado de la variables como categoria, respuestas, puntaje cundo el usario dese salir para recuperas su estado cundo inicie secion
     public void guardarhistorial() {
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences("datos", MODE_PRIVATE).edit();
+        editor.putInt("cont", cont);
+        editor.putInt("respuestaCorrecta", respuestaCorrecta);
+        editor.putInt("respuestaIncorrecta", respuestaIncorrecta);
+        editor.putInt("puntaje", puntaje);
+        editor.putInt("contPreguntas", contPreguntas);
+        editor.apply();
+
+
+        Toast.makeText(getContext(), "Guardar historial", Toast.LENGTH_SHORT).show();
+    }
+
+
+    // se guarda el historial o estado de la variables como categoria, respuestas, puntaje cundo el usario dese salir para recuperas su estado cundo inicie secion
+    public void guardarhistorialcategoria() {
         SharedPreferences.Editor editor = getActivity().getSharedPreferences("datos", MODE_PRIVATE).edit();
         editor.putInt("cont", cont);
         editor.putInt("respuestaCorrecta", respuestaCorrecta);
