@@ -30,4 +30,6 @@ La aplicación tiene un SplashScreen para dar una bienvenida y una sensación de
 cargando con fluidez y elegancia, también tenemos un Menú de opciones y un Menú inferior para mejorar
 la lavegavilida dentro de la app para el usuario
 
-![image](https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-184950.png?raw=true)
+
+
+![image](https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-184950.png?raw=true = 250x250)
