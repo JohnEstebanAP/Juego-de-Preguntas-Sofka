@@ -66,7 +66,8 @@ Material de apoyo con el que desarrolle la app, recursos y tutoriales de youtube
 
 <a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185114.png" align="left" height="600" width="300" ></a>
 <a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185126.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220107-180142.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220107-180236.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220107-180250.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220107-180307.png align="left" height="600" width="300" ></a>
+  
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180142.png" align="left" height="600" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180236.png" align="left" height="600" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180250.png" align="left" height="600" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180307.png" align="left" height="600" width="300" ></a>
