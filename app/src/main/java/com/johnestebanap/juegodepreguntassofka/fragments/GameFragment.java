@@ -150,11 +150,6 @@ public class GameFragment extends Fragment {
         //metodo para convertir la lista de preguntas aleatoria
         Collections.shuffle(questionList);
 
-        //Cundo yegamos a la ultima pregunta canviar el texto del boton y decir (confirmar y Finalizar)
-        if (contPreguntas == questionTotalCount - 1) {
-            buttonNext.setText(R.string.confirmar_finalizar_game);
-        }
-
         //Se Muestran las Preguntas
         showQuestions();
 
@@ -226,7 +221,7 @@ public class GameFragment extends Fragment {
         rb3.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.opcion_botton_background));
         rb4.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.opcion_botton_background));
 
-
+        totalSizeofQuestions = questionList.size();
         // virifica si ya se llego a la ultima pregunta para mostrar o no la siguiente pregunta
         if (contPreguntas < questionTotalCount) {
             //obtiene el nuero total de preguntas
@@ -244,37 +239,42 @@ public class GameFragment extends Fragment {
             //se necesita que por defecto esté en false
             respuesta = false;
 
-            buttonNext.setText("Confirmar");
 
             txtvwContPreguntas.setText("Pegunta : " + contPreguntas + "/" + questionTotalCount);
             //Se guarda el historial del las pregunta actual, puntaje, preguntas correctas e incorrectas.
             guardarHistorial(contPreguntas);
 
+            //Cundo yegamos a la ultima pregunta canviar el texto del boton y decir (confirmar y Finalizar)
+            if (contPreguntas == questionTotalCount) {
+                if (cont == totalSizeofQuestions) {
+                    buttonNext.setText(R.string.confirmar_finalizar_game);
+                }
+            } else {
+                buttonNext.setText("Confirmar");
+            }
+
         } else
         //si no, se devuelve de nuevo a la actividad
         {
-            totalSizeofQuestions = questionList.size();
-
-            if(cont == totalSizeofQuestions ){
+            if (cont == totalSizeofQuestions) {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                            // cuando se llega al final del juego, se lanzara lo escrito en la clase
-                            //FinalScoreDialog, la cual muestra un alertDialog con el puntaje total obtenido
-                            puntajeFianalDialog.puntajeFianal(respuestaCorrecta, respuestaIncorrecta, 25);
+                        // cuando se llega al final del juego, se lanzara lo escrito en la clase
+                        //FinalScoreDialog, la cual muestra un alertDialog con el puntaje total obtenido
+                        puntajeFianalDialog.puntajeFianal(respuestaCorrecta, respuestaIncorrecta, 25);
 
-                            //si la categoria ya supera los 5 entonces se deve serrar el activity
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(getContext(), "cerrada y recargada", Toast.LENGTH_SHORT).show();
-                                    getActivity().finish();
-                                }
-                            }, 5000);
+                        //si la categoria ya supera los 5 entonces se deve serrar el activity
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getContext(), "cerrada y recargada", Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
+                            }
+                        }, 5000);
                     }
                 }, 500);
             }
-
 
 
             // se verifica que la categoria no sea la ultima para mandarle los datos  de las preguntas buenas, malas y puntaje a la siguiente categoría
