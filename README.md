@@ -32,7 +32,7 @@ la próxima vez que inicie sesión tendrá que loguearse nuevamente
 UI / UX
 La aplicación tiene un SplashScreen para dar una bienvenida y una sensación de que la aplicación está
 cargando con fluidez y elegancia, también tenemos un Menú de opciones y un Menú inferior para mejorar
-la lavegavilida dentro de la app para el usuario,También tiene un distintivo icono de la aplicación para poder distinguir la aplicación, con su elegante modo Noche, ya que es como mas utilizo mi celular.
+la navegavilida dentro de la app para el usuario,También tiene un distintivo icono de la aplicación para poder distinguir la aplicación, con su elegante modo Noche, ya que es como mas utilizo mi celular.
 
 
 Material de apoyo con el que desarrolle la app, recursos y tutoriales de youtube.
