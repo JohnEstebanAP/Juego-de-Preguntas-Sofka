@@ -1,7 +1,10 @@
 # App Locas Preguntas
 Juego de Preguntas Sofka
 
+<div>Puedes descargar El APK instalar la app y probarla:  <a href="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/tree/App_Completa/apk/debug">APK-INSTALL</a></div>
 
+<br>
+  
 Notas:
 
 El Reto de Las Preguntas lo Realice Mediante Una App Para Android,
