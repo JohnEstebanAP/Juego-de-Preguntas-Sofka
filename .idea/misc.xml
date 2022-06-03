@@ -27,12 +27,13 @@
         <entry key="app/src/main/res/layout-notnight/final_score.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_registro.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_registro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/button_navigation.xml" value="0.25" />
         <entry key="app/src/main/res/layout/final_score.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/layout/fragment_game.xml" value="0.2754491017964072" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_record.xml" value="0.20885416666666667" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.33" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.20729166666666668" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20729166666666668" />

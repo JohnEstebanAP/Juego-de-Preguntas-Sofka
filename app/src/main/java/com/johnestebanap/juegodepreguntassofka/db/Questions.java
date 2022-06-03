@@ -1,6 +1,6 @@
 package com.johnestebanap.juegodepreguntassofka.db;
 
-//Clase de o Molde Para las Preguntas,
+//Clase o Molde Para las Preguntas,
 // con esta clase se podra crear objetos con la estructura que nesesitamos
 // para guardar las preguntas.
 public class Questions {
