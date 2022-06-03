@@ -263,7 +263,6 @@ public class GameFragment extends Fragment {
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(getContext(), "cerrada y recargada", Toast.LENGTH_SHORT).show();
                                 getActivity().finish();
                             }
                         }, 5000);
