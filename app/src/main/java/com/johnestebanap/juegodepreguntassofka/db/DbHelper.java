@@ -96,7 +96,7 @@ public class DbHelper extends SQLiteOpenHelper {
         Questions q3 = new Questions("Wakanda es un país ficticio ¿en qué continente?", "Asia", "Africa", "Norte América", "Sudamérica", 2, "General");
         addQuestions(q3);
 
-        Questions q4 = new Questions("¿Dón está Tasmania?", "Madagascar", "Australia", "Groenlandia", "JaPón", 2, "General");
+        Questions q4 = new Questions("¿Dónde está Tasmania?", "Madagascar", "Australia", "Groenlandia", "JaPón", 2, "General");
         addQuestions(q4);
 
         Questions q5 = new Questions("¿Quién gana en la fábula? ¿La liebre o la tortuga?", "Ninguno", "La tortuga", "la liebre", "Empatan", 2, "General");

@@ -21,7 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.johnestebanap.juegodepreguntassofka.PuntajeFianalDialog;
+import com.johnestebanap.juegodepreguntassofka.PuntajeFinalDialog;
 import com.johnestebanap.juegodepreguntassofka.R;
 import com.johnestebanap.juegodepreguntassofka.db.DbHelper;
 import com.johnestebanap.juegodepreguntassofka.db.Questions;
@@ -53,7 +53,7 @@ public class GameFragment extends Fragment {
 
     private int respuestaCorrecta = 0, respuestaIncorrecta = 0;
 
-    private PuntajeFianalDialog puntajeFianalDialog;
+    private PuntajeFinalDialog puntajeFinalDialog;
 
     private int totalSizeofQuestions = 0;
 
@@ -97,7 +97,7 @@ public class GameFragment extends Fragment {
 
         btnLabelColor = rb1.getTextColors();
 
-        puntajeFianalDialog = new PuntajeFianalDialog(getContext());
+        puntajeFinalDialog = new PuntajeFinalDialog(getContext());
 
         return view;
     }
@@ -143,7 +143,7 @@ public class GameFragment extends Fragment {
     }
 
     private void startGame() {
-        questionTotalCount = questionList.size();
+        //questionTotalCount = questionList.size();
         //metodo para convertir la lista de preguntas aleatoria
         Collections.shuffle(questionList);
 
@@ -220,7 +220,7 @@ public class GameFragment extends Fragment {
 
         totalSizeofQuestions = questionList.size();
         // virifica si ya se llego a la ultima pregunta para mostrar o no la siguiente pregunta
-        if (contPreguntas < questionTotalCount) {
+        if (contPreguntas < 1) {
             //obtiene el nuero total de preguntas
             currentQuestion = questionList.get(contPreguntas);
 
@@ -257,7 +257,7 @@ public class GameFragment extends Fragment {
                     public void run() {
                         // cuando se llega al final del juego, se lanzara lo escrito en la clase
                         //FinalScoreDialog, la cual muestra un alertDialog con el puntaje total obtenido
-                        puntajeFianalDialog.puntajeFianal(respuestaCorrecta, respuestaIncorrecta, 25);
+                        puntajeFinalDialog.puntajeFianal(respuestaCorrecta, respuestaIncorrecta, 25);
 
                         //si la categoria ya supera los 5 entonces se deve serrar el activity
                         handler.postDelayed(new Runnable() {

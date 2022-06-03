@@ -5,6 +5,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.app.AlertDialog;
@@ -34,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     //Se Crean las variables para el SharedPreferences
-    /*SharedPreferences preferences;
-    SharedPreferences.Editor editor;*/
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     Button btnEntrar, btnRegistro, btnGoogle;
 
@@ -70,8 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
         googleClient.signOut();
 
-      //  Metodo deprecado
-      //  startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SING_IN);   onActivityResult(result)
+        //  Metodo deprecado
+        //  startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SING_IN);   onActivityResult(result)
         someActivityResultLauncher.launch(googleClient.getSignInIntent());
     }
 
@@ -135,22 +136,21 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.input_contraseña, Toast.LENGTH_SHORT).show();
             ediTxtPassword.requestFocus();
         } else {
-          /*  if (user1.equals(email) && pass.equals(password)) {
-                preferences = getSharedPreferences("guest", MODE_PRIVATE);
-                editor = preferences.edit();
-                editor.putString("Name", "user");
-                editor.putString("Pass", "123456789");
-                editor.putString("rol", "1");
-                editor.commit();
-                showHome(email);
-            } */
+
+            preferences = getSharedPreferences("user", MODE_PRIVATE);
+            editor = preferences.edit();
+            editor.putString("User", email);
+            editor.putString("Pass", "123456789");
+            editor.commit();
+            showHome(email);
+
 
             //se envia el correo y la contraseña para verificar si el correo o el usuairo esta reguistrado
             //si esta reguistrado el task.isSuccessful retorna true y pasa al home, si no esta reguistrado
             // muestra una alerta de error ya que no se pudo autentica al usuario.
 
-            if(password.equals("12345678")){
-                 showHome(email);
+            if (password.equals("12345678")) {
+                showHome(email);
             }
 
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(

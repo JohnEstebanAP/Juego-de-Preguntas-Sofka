@@ -1,5 +1,7 @@
 package com.johnestebanap.juegodepreguntassofka;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,13 +11,13 @@ import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class PuntajeFianalDialog {
+public class PuntajeFinalDialog {
     private final Context mContext;
     private Dialog finalScoreDialog;
     TextView txtvwPuntajeFinal, txtvwPorcentajeFinal, txtvwCorrectas, txtvwIncorrectas ;
     private final Handler handler = new Handler();
 
-    public PuntajeFianalDialog(Context mContext) {
+    public PuntajeFinalDialog(Context mContext) {
         this.mContext = mContext;
     }
 
@@ -34,7 +36,7 @@ public class PuntajeFianalDialog {
             finalizar();
         });*/
 
-        handler.postDelayed(() -> finalizar(), 4500);
+        handler.postDelayed(() -> finalizar(), 10000);
 
         finalScoreDialog.show();
         finalScoreDialog.setCancelable(false);//se pone falso ya que no se desea cancelar al apretar por ejemplo, el botón de atrás
@@ -50,6 +52,8 @@ public class PuntajeFianalDialog {
         //se asigna a prefe el documento llamado data de sharedPreferences
         SharedPreferences prefe = mContext.getSharedPreferences("datos", Context.MODE_PRIVATE);
 
+        String user = prefe.getString("User", "null");
+
         SharedPreferences.Editor editor = prefe.edit();
         editor.putInt("cont", 1);
         editor.putInt("respuestaCorrecta", 0);
@@ -63,7 +67,6 @@ public class PuntajeFianalDialog {
         //al intent se le pone un estra que es el email para pasarselo a la activity del Home
         intent.putExtra("email", "email");
         mContext.startActivity(intent);
-
     }
 
 
