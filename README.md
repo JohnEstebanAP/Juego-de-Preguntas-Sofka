@@ -1,7 +1,10 @@
 # App Locas Preguntas
 Juego de Preguntas Sofka
 
+<div>Puedes descargar El APK instalar la app y probarla:  <a href="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/tree/App_Completa/apk/debug">APK-INSTALL</a></div>
 
+<br>
+  
 Notas:
 
 El Reto de Las Preguntas lo Realice Mediante Una App Para Android,
@@ -29,7 +32,7 @@ la próxima vez que inicie sesión tendrá que loguearse nuevamente
 UI / UX
 La aplicación tiene un SplashScreen para dar una bienvenida y una sensación de que la aplicación está
 cargando con fluidez y elegancia, también tenemos un Menú de opciones y un Menú inferior para mejorar
-la lavegavilida dentro de la app para el usuario,También tiene un distintivo icono de la aplicación para poder distinguir la aplicación, con su elegante modo Noche, ya que es como mas utilizo mi celular.
+la navegavilida dentro de la app para el usuario,También tiene un distintivo icono de la aplicación para poder distinguir la aplicación, con su elegante modo Noche, ya que es como mas utilizo mi celular.
 
 
 Material de apoyo con el que desarrolle la app, recursos y tutoriales de youtube.
@@ -52,20 +55,22 @@ Material de apoyo con el que desarrolle la app, recursos y tutoriales de youtube
 <br>
 #IMAGENES
 
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-184950.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185009.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185017.png" align="left" height="600" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-184950.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185009.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185017.png" align="left" height="650" width="300" ></a>
 
 <br>
 
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185026.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185036.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185053.png" align="left" height="600" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185026.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185036.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185053.png" align="left" height="650" width="300" ></a>
 
 <br>
 
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185114.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185126.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185155.png" align="left" height="600" width="300" ></a>
-<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185245.png" align="left" height="600" width="300" ></a>
-
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185114.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/master/Images/Screenshot_20220106-185126.png" align="left" height="650" width="300" ></a>
+  
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180142.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180236.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180250.png" align="left" height="650" width="300" ></a>
+<a href="url"><img src="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/blob/App_Completa/Images/Screenshot_20220107-180307.png" align="left" height="650" width="300" ></a>
