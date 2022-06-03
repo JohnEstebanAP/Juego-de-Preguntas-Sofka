@@ -39,17 +39,13 @@ public final class Config
         public final static String COLUMN_SCORE = "opcion1";
     }
 
-
     protected  final  static  String  SQL_CREATE_USER_TABLE = //
             "CREATE TABLE " + TBUser.TABLE_NAME + " (" +
                     TBUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     TBUser.COLUMN_USER + " TEXT NOT NULL," +
                     TBUser.COLUMN_SCORE + " INTEGER NOT NULL)";
 
-
-
     protected  final  static  String SQL_DELETE_USER =  "DROP TABLE IF EXISTS " + TBQuestions.TABLE_NAME;
-
 
 }
 

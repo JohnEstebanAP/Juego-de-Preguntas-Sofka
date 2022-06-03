@@ -7,11 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.johnestebanap.juegodepreguntassofka.R;
 
-public class RecordFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,19 +22,16 @@ public class RecordFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View recordTitle = inflater.inflate(R.layout.fragment_record, container, false);
-        TextView textViewTitle = recordTitle.findViewById(R.id.txtTitleRecord);
+        View view = inflater.inflate(R.layout.fragment_record, container, false);
+        TextView textViewTitle = view.findViewById(R.id.txtTitleRecord);
 
-        View txtViewRecord = inflater.inflate(R.layout.fragment_record, container, false);
-        TextView textViewRecord = txtViewRecord.findViewById(R.id.txtViewRecord);
+        LinearLayout lyRecord = view.findViewById(R.id.lyRecord);
 
+        TextView txtHistory = new TextView(getContext());
+        txtHistory.setText("Usuario: 0000000");
 
-
-
-
-
-
-
-        return recordTitle;
+        lyRecord.addView(txtHistory);
+        
+        return view;
     }
 }

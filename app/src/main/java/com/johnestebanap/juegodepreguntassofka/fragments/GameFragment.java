@@ -102,7 +102,6 @@ public class GameFragment extends Fragment {
         return view;
     }
 
-
     //se crea un metodo que inicializa las varaibles del layout
     private void idInit() {
         txtvwPreguntas = view.findViewById(R.id.preguntas_game);
@@ -119,7 +118,6 @@ public class GameFragment extends Fragment {
 
         buttonNext = view.findViewById(R.id.btn_confir);
     }
-
 
     // incializa la base de datos
     private void dbInit() {
@@ -143,7 +141,6 @@ public class GameFragment extends Fragment {
                 break;
         }
     }
-
 
     private void startGame() {
         questionTotalCount = questionList.size();
@@ -234,11 +231,9 @@ public class GameFragment extends Fragment {
             rb3.setText(currentQuestion.getOption3());
             rb4.setText(currentQuestion.getOption4());
 
-
             contPreguntas++;
             //se necesita que por defecto esté en false
             respuesta = false;
-
 
             txtvwContPreguntas.setText(getString(R.string.pregunta) + contPreguntas + "/" + questionTotalCount);
             //Se guarda el historial del las pregunta actual, puntaje, preguntas correctas e incorrectas.
@@ -275,7 +270,6 @@ public class GameFragment extends Fragment {
                     }
                 }, 500);
             }
-
 
             // se verifica que la categoria no sea la ultima para mandarle los datos  de las preguntas buenas, malas y puntaje a la siguiente categoría
             if (cont < 5) {

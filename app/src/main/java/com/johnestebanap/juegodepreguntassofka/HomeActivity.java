@@ -30,8 +30,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.johnestebanap.juegodepreguntassofka.fragments.GameFragment;
+import com.johnestebanap.juegodepreguntassofka.fragments.HistoryFragment;
 import com.johnestebanap.juegodepreguntassofka.fragments.HomeFragment;
-import com.johnestebanap.juegodepreguntassofka.fragments.RecordFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -136,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void showRecord() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new RecordFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HistoryFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 
     //Metodo para mostrar alerta para salir de la app
