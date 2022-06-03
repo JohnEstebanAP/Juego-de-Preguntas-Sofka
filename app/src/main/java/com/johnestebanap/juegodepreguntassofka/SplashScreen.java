@@ -31,7 +31,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //Abrimos conecion con firebase y solicitamos si hay un usuario logeado
+        //Abrimos connexion con firebase y solicitamos si hay un usuario logeado
         FirebaseUser user = mAuth.getCurrentUser();
 
         //se inicia el SharedPreferences para verificar si hay un usuario logeado por este medio.
