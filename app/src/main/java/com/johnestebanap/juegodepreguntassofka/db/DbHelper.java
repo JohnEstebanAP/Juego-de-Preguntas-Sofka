@@ -35,15 +35,27 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
 
+        //Metodo para agregar las preguntas a la tabla de la base de datos
         db.execSQL(SQL_CREATE_USER_TABLE);
         //Metodo para agregar las preguntas a la tabla de la base de datos
         agregarPreguntasTb();
     }
+
+    //se insertan las preguntas a la base de datos
+    public void addHistryUserTb(String nameUser, int score ){
+
+
+        HistoryUser historiUsuer = new HistoryUser(nameUser, score);
+        addHistoryUser(historiUsuer);
+
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -58,7 +70,7 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER, historyUser.getNameUser());
         values.put(COLUMN_SCORE, historyUser.getScore());
-        db.insert(TABLE_NAME, null, values);
+        db.insert(Config.TBUser.TABLE_NAME, null, values);
     }
 
     private void addQuestions(Questions questions) // se agregan las preguntas a la tabla
@@ -77,12 +89,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-    //se insertan las preguntas a la base de datos
-    public void addHistryUserTb(String nameUser, int score ){
-        HistoryUser historiUsuer = new HistoryUser(nameUser, score);
-        addHistoryUser(historiUsuer);
 
-    }
 
     //se insertan las preguntas a la base de datos
     public void agregarPreguntasTb() {

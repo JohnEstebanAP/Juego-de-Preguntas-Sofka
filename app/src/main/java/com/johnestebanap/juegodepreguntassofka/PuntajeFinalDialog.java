@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.johnestebanap.juegodepreguntassofka.db.DbHelper;
+
 public class PuntajeFinalDialog {
     private final Context mContext;
     private Dialog finalScoreDialog;
@@ -35,6 +37,12 @@ public class PuntajeFinalDialog {
         finalScoreDialog.show();
         finalScoreDialog.setCancelable(false);//se pone falso ya que no se desea cancelar al apretar por ejemplo, el botón de atrás
         finalScoreDialog.setCanceledOnTouchOutside(false);//esto indica que el cuadro de diálogo no se cerrará si se clickea en otra parte
+    }
+
+    private void addDataHistoriUser(String username,int score){
+        DbHelper dbHelper = new DbHelper(mContext);
+
+        dbHelper.addHistryUserTb(username, score);
     }
 
     private void finalizar(){
@@ -80,6 +88,10 @@ public class PuntajeFinalDialog {
         
         txtvwCorrectas.setText(mContext.getString(R.string.correctas_dialog) + respuestasCorrectas);
         txtvwIncorrectas.setText(mContext.getString(R.string.incorrectas_dialog) + respuestasIncorrectas);
+
+        //addDataHistoriUser(user, porcentaje);
+
+
     }
 }
 

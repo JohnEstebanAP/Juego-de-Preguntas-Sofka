@@ -34,9 +34,9 @@ public final class Config
     //se Crean los Strind de las tablas y consultas a relisar para tener mas organizado el codigo
     public static class TBUser implements BaseColumns
     {
-        public final static String TABLE_NAME = "historyUser";
-        public final static String COLUMN_USER = "reguntas";
-        public final static String COLUMN_SCORE = "opcion1";
+        public final static String TABLE_NAME = "HistoryUser";
+        public final static String COLUMN_USER = "User";
+        public final static String COLUMN_SCORE = "Score";
     }
 
     protected  final  static  String  SQL_CREATE_USER_TABLE = //
