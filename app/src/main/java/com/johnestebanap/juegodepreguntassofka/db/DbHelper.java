@@ -1,6 +1,5 @@
 package com.johnestebanap.juegodepreguntassofka.db;
 
-import static com.johnestebanap.juegodepreguntassofka.db.Config.SQL_CREATE_USER_TABLE;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.COLUMN_ANSWER;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.COLUMN_CATEGORY;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.COLUMN_OPTION1;
@@ -11,8 +10,6 @@ import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.COLU
 import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.TABLE_NAME;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.SQL_CREATE_QUESTIONS_TABLE;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.SQL_DELETE_USER;
-import static com.johnestebanap.juegodepreguntassofka.db.Config.TBUser.COLUMN_SCORE;
-import static com.johnestebanap.juegodepreguntassofka.db.Config.TBUser.COLUMN_USER;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -31,46 +28,20 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
-
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
-
-        //Metodo para agregar las preguntas a la tabla de la base de datos
-        db.execSQL(SQL_CREATE_USER_TABLE);
-        //Metodo para agregar las preguntas a la tabla de la base de datos
         agregarPreguntasTb();
     }
-
-    //se insertan las preguntas a la base de datos
-    public void addHistryUserTb(String nameUser, int score ){
-
-
-        HistoryUser historiUsuer = new HistoryUser(nameUser, score);
-        addHistoryUser(historiUsuer);
-
-    }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         // se elimina la tabla si esta esiste
         db.execSQL(SQL_DELETE_USER);
         onCreate(db);
-    }
-
-
-    private void addHistoryUser(HistoryUser historyUser) // se agregan el histarial de los usuarios a la tabla
-    {
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USER, historyUser.getNameUser());
-        values.put(COLUMN_SCORE, historyUser.getScore());
-        db.insert(Config.TBUser.TABLE_NAME, null, values);
     }
 
     private void addQuestions(Questions questions) // se agregan las preguntas a la tabla
@@ -84,12 +55,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_ANSWER, questions.getAnswer());
         values.put(COLUMN_CATEGORY, questions.getCategory());
         db.insert(TABLE_NAME, null, values);
-
-
     }
-
-
-
 
     //se insertan las preguntas a la base de datos
     public void agregarPreguntasTb() {
@@ -109,7 +75,6 @@ public class DbHelper extends SQLiteOpenHelper {
         Questions q5 = new Questions("¿Quién gana en la fábula? ¿La liebre o la tortuga?", "Ninguno", "La tortuga", "la liebre", "Empatan", 2, "General");
         addQuestions(q5);
 
-
         //matematicas
         Questions q6 = new Questions("¿Cuál es el primer dígito de pi?", "1", "2", "3", "4", 3, "Matematicas");
         addQuestions(q6);
@@ -125,7 +90,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Questions q10 = new Questions("¿Cuáles de los siguientes triángulos, según sus medidas son rectángulos?", "3 cm, 4 cm, 7 cm", "3 cm, 4 cm, 5cm", "5 cm, 12 cm, 13 cm", " 1 + 7 = 8", 4, "Matematicas");
         addQuestions(q10);
-
 
         //Programacion
 
@@ -144,7 +108,6 @@ public class DbHelper extends SQLiteOpenHelper {
         Questions q15 = new Questions("Son descripciones gráficas de algoritmos; usan símbolos conectados con flechas para indicar la secuencia de instrucciones.", "Diagramas de flujo", "Storyboard", "Pseudocódigo", "Lenguaje de programación", 1, "Programacion");
         addQuestions(q15);
 
-
         //Logica
         Questions q16 = new Questions("¿Qué parentesco tiene conmigo el hermano de mi padre?", "Es mi tío", "Hermano", "Es Mi Padre", "Es Mi Primo", 1, "Logica");
         addQuestions(q16);
@@ -160,7 +123,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Questions q20 = new Questions("Algunos meses tienen 30 días, otros 31. ¿Cuántos tienen 28 días?", "Todos los meses", "2 meses", "1 Mes", "5 Meses", 1, "Logica");
         addQuestions(q20);
-
 
         //Historia
         Questions q21 = new Questions("¿Cual es  la o el primera programador de la historia?", "Alan turing", "Ada King Lovelace", "Linus torvalds", "Willemina Fleming", 2, "Historia");
@@ -201,7 +163,6 @@ public class DbHelper extends SQLiteOpenHelper {
         String selection = COLUMN_CATEGORY + " = ? ";
         String[] categorySelection = {category};
 
-
         // se ejecuta la consulta para octener los datos de las preguntas y se le pasa su respectiva categoria
         @SuppressLint("Recycle")
         Cursor cursor = db.query(TABLE_NAME, Projection, selection, categorySelection, null, null, null);
@@ -225,7 +186,6 @@ public class DbHelper extends SQLiteOpenHelper {
         cursor.close();
         return questionsList;
     }
-
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // actulisa la vercion de la vase de datos eliminado la vercion vieja y atulizandola por la vercion nueva

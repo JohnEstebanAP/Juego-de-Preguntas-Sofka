@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.johnestebanap.juegodepreguntassofka.db.DbHelper;
+import com.johnestebanap.juegodepreguntassofka.db.DbHelper2;
 
 public class PuntajeFinalDialog {
     private final Context mContext;
@@ -21,7 +22,7 @@ public class PuntajeFinalDialog {
         this.mContext = mContext;
     }
 
-    public void puntajeFianal(int respuestasCoreectas,int respuestasIncorrectas, int totalPreguntas)
+    public void puntajeFianal(int respuestasCoreectas, int respuestasIncorrectas, int totalPreguntas)
     {
         finalScoreDialog = new Dialog(mContext);
         finalScoreDialog.setContentView(R.layout.final_score);
@@ -40,9 +41,8 @@ public class PuntajeFinalDialog {
     }
 
     private void addDataHistoriUser(String username,int score){
-        DbHelper dbHelper = new DbHelper(mContext);
-
-        dbHelper.addHistryUserTb(username, score);
+        DbHelper2 dbHelper2 = new DbHelper2(mContext);
+        dbHelper2.addHistoryUserTb(username, score);
     }
 
     private void finalizar(){
@@ -89,8 +89,7 @@ public class PuntajeFinalDialog {
         txtvwCorrectas.setText(mContext.getString(R.string.correctas_dialog) + respuestasCorrectas);
         txtvwIncorrectas.setText(mContext.getString(R.string.incorrectas_dialog) + respuestasIncorrectas);
 
-        //addDataHistoriUser(user, porcentaje);
-
+        addDataHistoriUser(user, porcentaje);
 
     }
 }
