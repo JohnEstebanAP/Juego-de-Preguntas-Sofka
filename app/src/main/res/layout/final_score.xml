@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="300dp"
-    android:layout_height="250dp"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,26 +14,62 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tu Puntaje Final es: "
+            android:text="@string/tu_puntaje_final_es"
             android:textColor="@color/white"
+            android:textSize="20sp"
             android:padding="20dp"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtvw_correctas"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:padding="20dp"/>
+        <TextView
+            android:id="@+id/txtvw_incorrectas"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:padding="20dp"/>
+    </LinearLayout>
     <TextView
-        android:id="@+id/txtvwScore"
+        android:id="@+id/txtvw_porcentaje_final"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="Tu Puntaje Final "
+        android:text=""
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:padding="20dp"/>
+    <TextView
+        android:id="@+id/txtvw_puntaje_final"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:padding="20dp"/>
+
 
     <Button
         android:id="@+id/btn_finalScore"
         android:layout_width="wrap_content"
         android:background="@drawable/new_button"
         android:layout_gravity="center"
-        android:text="Ok"
+        android:layout_margin="20dp"
+        android:text="@string/ok"
+        android:textSize="20sp"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

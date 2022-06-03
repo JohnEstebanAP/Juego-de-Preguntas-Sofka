@@ -19,6 +19,47 @@
     <string name="terminos_condiciones">Acepto los términos y condiciones</string>
     <string name="formulario_de_registro">Formulario de registro</string>
     <string name="seleccionar_rol">Seleccionar rol</string>
+    <string name="checkboc_registro">Aceptar la opcion de términos y condiciones :)</string>
+    <string name="contrasenia_min_8">La contraseña debe tener minimo 8 caracteres</string>
+    <string name="inputCorreo">Ingrese el Correo electronico</string>
+    <string name="input_contraseña">Ingrese una Contraseña</string>
+    <string name="ErrorAuth">Se ha producidoun error autenticando al usuario</string>
+
+    <!-- Home -->
+    <string name="imagen_de_titulo">Imagen de titulo</string>
+    <string name="limpiar_datos">Limpiar Datos</string>
+    <string name="jugar">jugar</string>
+    <string name="descrition_home">Locas Preguntas es un juego de preguntas abstractas en el que cuantas más respuestas correctas obtienes mas puntos aras y suviras de nivel volviendose mas difícil.</string>
+    <string name="descripcion_juego">El juego se compone de 5 rondas donde se tendran una serie de preguntas con 4 opciones de respuesta y una de ella válida, Cada respuesta correcta te dará una puntuación de 10.</string>
+    <string name="imagen_del_home">imagen del home</string>
+
+    <string name="onbackpressed_exit">presiona dos veces para salir de la app</string>
+
+
+    <!--Menus-->
+    <!-- BotonNavigation-->
+    <string name="juego">Juego</string>
+    <string name="menu">menu</string>
+    <string name="historial">historial</string>
+
+    <!--  -->
+
+    <!-- Activity Game -->
+    <string name="puntaje_game">Puntaje</string>
+    <string name="respuestas_correctas_game">Correctas</string>
+    <string name="respestas_incorrectas_game">incorrectas</string>
+    <string name="preguntas_game">Pregunta</string>
+    <string name="respuesta_1">Respuesta 1</string>
+    <string name="respuesta_2">Respuesta 2</string>
+    <string name="respuesta_3">Respuesta 3</string>
+    <string name="respuesta_4">Respuesta 4</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="confirmar_finalizar_game">Confirmar y Finalizar</string>
+
+    <string name="correctas">Correctas: </string>
+    <string name="incorrectas">Incorrectas: </string>
+    <string name="puntos">Puntos: </string>
+    <string name="pregunta">Pregunta : </string>
 
     <!-- alertas de registro -->
     <string name="completar_correo">por favor completar el campo del correo electronico</string>
@@ -46,33 +87,16 @@
 
     <!--Nombre de los SharedPreferences-->
     <string name="prefs_file">com.johnestebanap.myapplication.PREFERENCE_FILE_KEY</string>
-    <string name="imagen_de_titulo">Imagen de titulo</string>
-    <string name="inputCorreo">Ingrese el Correo electronico</string>
-    <string name="input_contraseña">Ingrese una Contraseña</string>
-    <string name="ErrorAuth">Se ha producidoun error autenticando al usuario</string>
-    <string name="checkboc_registro">Aceptar la opcion de términos y condiciones :)</string>
-    <string name="juego">Juego</string>
-    <string name="contrasenia_min_8">La contraseña debe tener minimo 8 caracteres</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="descrition_home">Locas Preguntas es un juego de preguntas abstractas en el que cuantas más respuestas correctas obtienes mas puntos aras y suviras de nivel volviendose mas difícil.</string>
-    <string name="descripcion_juego">El juego se compone de 5 rondas donde se tendran una serie de preguntas con 4 opciones de respuesta y una de ella válida, Cada respuesta correcta te dará una puntuación de 10.</string>
-    <string name="limpiar_datos">Limpiar Datos</string>
-    <string name="jugar">jugar</string>
-    <string name="imagen_del_home">imagen del home</string>
-    <string name="onbackpressed_exit">presiona dos veces para salir de la app</string>
-    <string name="puntaje_game">Puntaje</string>
-    <string name="respuestas_correctas_game">Correctas</string>
-    <string name="respestas_incorrectas_game">incorrectas</string>
-    <string name="preguntas_game">Pregunta</string>
-    <string name="respuesta_1">Respuesta 1</string>
-    <string name="respuesta_2">Respuesta 2</string>
-    <string name="respuesta_3">Respuesta 3</string>
-    <string name="respuesta_4">Respuesta 4</string>
-    <string name="confirmar">Confirmar</string>
-    <string name="menu">menu</string>
-    <string name="historial">historial</string>
-    <string name="confirmar_finalizar_game">Confirmar y Finalizar</string>
+
+
+    <!-- ShowDialog Final-->
+    <string name="puntaje_final">Puntaje Final: </string>
+    <string name="tu_puntaje_final_es">Tu Puntaje Final es:</string>
+    <string name="porcentaje_final">Porcentaje Final: </string>
+    <string name="correctas_dialog">Correctas: </string>
+    <string name="incorrectas_dialog">Incorrectas: </string>
+    <string name="ok">Ok</string>
+
 
 
 </resources>

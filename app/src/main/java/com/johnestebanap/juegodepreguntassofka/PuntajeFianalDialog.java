@@ -8,26 +8,25 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PuntajeFianalDialog {
-    private Context mContext;
+    private final Context mContext;
     private Dialog finalScoreDialog;
-    TextView txtvwFinalScore;
-    private Handler handler = new Handler();
+    TextView txtvwPuntajeFinal, txtvwPorcentajeFinal, txtvwCorrectas, txtvwIncorrectas ;
+    private final Handler handler = new Handler();
 
     public PuntajeFianalDialog(Context mContext) {
         this.mContext = mContext;
     }
 
-    public void puntajeFianal(int correctAns,int wrongAns, int totalSize)
+    public void puntajeFianal(int respuestasCoreectas,int respuestasIncorrectas, int totalPreguntas)
     {
         finalScoreDialog = new Dialog(mContext);
         finalScoreDialog.setContentView(R.layout.final_score);
 
-        final Button btn_finalScore = (Button) finalScoreDialog.findViewById(R.id.btn_finalScore);
+        final Button btn_finalScore = finalScoreDialog.findViewById(R.id.btn_finalScore);
 
-        finalScoreValidations( correctAns, wrongAns, totalSize);
+        finalScoreValidations( respuestasCoreectas, respuestasIncorrectas, totalPreguntas);
 
         /*
         btn_finalScore.setOnClickListener(view -> //al darle click al botón "ok", al finalizar la ronda, se cerrará el alert dialog y se llevará de nuevo a la explaining Activity
@@ -35,12 +34,7 @@ public class PuntajeFianalDialog {
             finalizar();
         });*/
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finalizar();
-            }
-        }, 4500);
+        handler.postDelayed(() -> finalizar(), 4500);
 
         finalScoreDialog.show();
         finalScoreDialog.setCancelable(false);//se pone falso ya que no se desea cancelar al apretar por ejemplo, el botón de atrás
@@ -51,8 +45,7 @@ public class PuntajeFianalDialog {
 
     private void finalizar(){
         finalScoreDialog.dismiss();
-
-
+        
         //Formateo los datos
         //se asigna a prefe el documento llamado data de sharedPreferences
         SharedPreferences prefe = mContext.getSharedPreferences("datos", Context.MODE_PRIVATE);
@@ -73,40 +66,24 @@ public class PuntajeFianalDialog {
 
     }
 
+
     @SuppressLint("SetTextI18n")
-    private void finalScoreValidations(int correctAns, int wrongAns, int totalSize) // método em el cuál se hace la fórmula del score
-
+    private void finalScoreValidations(int respuestasCorrectas, int respuestasIncorrectas, int totalRespuestas) // método em el cuál se hace la fórmula del score
     {
-        int tempScore;
-        txtvwFinalScore = finalScoreDialog.findViewById(R.id.txtvwScore); // se le asigna los datos al textview creado en el layout final_score
+        int puntos, porcentaje;
+        txtvwPuntajeFinal = finalScoreDialog.findViewById(R.id.txtvw_puntaje_final); // se le asigna los datos al textview creado en el layout final_score
+        txtvwPorcentajeFinal = finalScoreDialog.findViewById(R.id.txtvw_porcentaje_final);
+        txtvwCorrectas = finalScoreDialog.findViewById(R.id.txtvw_correctas);
+        txtvwIncorrectas = finalScoreDialog.findViewById(R.id.txtvw_incorrectas);
+        
+        puntos = (respuestasCorrectas * 10) - (respuestasIncorrectas * 10);
+        txtvwPuntajeFinal.setText(mContext.getString(R.string.puntaje_final) + puntos);
 
-        if (correctAns == totalSize) //cuando se finaliza el juego
-        {
-            tempScore = (correctAns * 20) - (wrongAns * 5);
-            txtvwFinalScore.setText("Final Score: " + String.valueOf(tempScore));
-        }
-
-        else if (wrongAns == totalSize) // cuando no se completa  el juego  o las preguntas son incorrectas
-        {
-            tempScore = 0;
-            txtvwFinalScore.setText("Final Score: " + String.valueOf(tempScore));
-        }
-
-        else  if (correctAns>wrongAns) // cuando hay más respuestas correctas que incorrectas
-        {
-            tempScore = (correctAns * 20) - (wrongAns * 5);
-            txtvwFinalScore.setText("Final Score: " + String.valueOf(tempScore));
-        }
-        else  if (wrongAns>correctAns) // cuando hay más respuestas incorrectas que correctas
-        {
-            tempScore = (correctAns * 20) - (wrongAns * 5);
-            txtvwFinalScore.setText("Final Score: " + String.valueOf(tempScore));
-        }
-        else  if (correctAns==wrongAns) // cuando hay igualdad en respuestsa correctas e incorrectas
-        {
-            tempScore = (correctAns * 20) - (wrongAns * 5);
-            txtvwFinalScore.setText("Final Score: " + String.valueOf(tempScore));
-        }
+        porcentaje = (respuestasCorrectas * 100)/totalRespuestas;
+        txtvwPorcentajeFinal.setText(mContext.getString(R.string.porcentaje_final) + porcentaje +" %");
+        
+        txtvwCorrectas.setText(mContext.getString(R.string.correctas_dialog) + respuestasCorrectas);
+        txtvwIncorrectas.setText(mContext.getString(R.string.incorrectas_dialog) + respuestasIncorrectas);
     }
 }
 
