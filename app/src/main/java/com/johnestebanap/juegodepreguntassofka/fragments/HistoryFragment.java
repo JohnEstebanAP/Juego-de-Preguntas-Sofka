@@ -34,13 +34,29 @@ public class HistoryFragment extends Fragment {
 
         LinearLayout lyRecord = view.findViewById(R.id.lyRecord);
 
-        TextView txtHistory = new TextView(getContext());
 
-        for (HistoryUser history : historyUsers) {
-            String user = "Usuario : ".concat(history.getNameUser());
-            txtHistory.setText(user);
-            lyRecord.addView(txtHistory);
-        }
+      //  ArrayList<TextView> listTextView = new ArrayList<>();
+
+       // int contador = 0;
+      //  String user = "Usuario : ";
+       // listTextView.add(new TextView(getContext()));
+
+
+/*        for (int i = 0; i <= 12; i++) {
+
+
+        }*/
+
+       /*for (HistoryUser history : historyUsers) {
+         //   user = "Usuario : ".concat(.concat("\n"));
+
+
+        }*/
+
+       // TextView txtHistory = new TextView(getContext());
+       // txtHistory.setText( historyUsers.get(0).getNameUser());
+      ////  txtHistory.setText( historyUsers.get(0).getScore());
+      //  lyRecord.addView(txtHistory);
         return view;
     }
 

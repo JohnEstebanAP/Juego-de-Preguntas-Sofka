@@ -7,6 +7,7 @@ public final class Config {
     private Config() {
     }
 
+    //TODO Elementos de la base de datos del historial de usuarios.
     //se Crean los Strind de las tablas y consultas a relisar para tener mas organizado el codigo
     public static class TBQuestions implements BaseColumns {
         public final static String TABLE_NAME = "game_quiz";

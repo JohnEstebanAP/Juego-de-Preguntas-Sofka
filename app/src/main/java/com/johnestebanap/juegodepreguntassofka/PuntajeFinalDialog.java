@@ -1,7 +1,11 @@
 package com.johnestebanap.juegodepreguntassofka;
 
+import static com.johnestebanap.juegodepreguntassofka.db.Config.TBUser.COLUMN_SCORE;
+import static com.johnestebanap.juegodepreguntassofka.db.Config.TBUser.COLUMN_USER;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,17 +30,25 @@ public class PuntajeFinalDialog {
         this.mContext = mContext;
     }
 
-    public void puntajeFianal(int respuestasCoreectas, int respuestasIncorrectas, int totalPreguntas) {
+    public void puntajeFianal(int respuestasCorrectas, int respuestasIncorrectas, int totalPreguntas)
+    {
+        SharedPreferences prefe = mContext.getSharedPreferences("datos", Context.MODE_PRIVATE);
+        String user = prefe.getString("User", "email");
+
+        int puntos = (respuestasCorrectas * 10) - (respuestasIncorrectas * 10);
+        addDataHistoriUser(user, puntos);
+
+
         finalScoreDialog = new Dialog(mContext);
         finalScoreDialog.setContentView(R.layout.final_score);
 
         final Button btn_finalScore = finalScoreDialog.findViewById(R.id.btn_finalScore);
-        finalScoreValidations(respuestasCoreectas, respuestasIncorrectas, totalPreguntas);
-        /*
+        finalScoreValidations(respuestasCorrectas, respuestasIncorrectas, totalPreguntas);
+
         btn_finalScore.setOnClickListener(view -> //al darle click al botón "ok", al finalizar la ronda, se cerrará el alert dialog y se llevará de nuevo a la explaining Activity
         {
             finalizar();
-        });*/
+        });
         handler.postDelayed(() -> finalizar(), 10000);
         finalScoreDialog.show();
         finalScoreDialog.setCancelable(false);//se pone falso ya que no se desea cancelar al apretar por ejemplo, el botón de atrás
@@ -59,6 +71,25 @@ public class PuntajeFinalDialog {
             //values.put(COLUMN_USER, historyUser.getNameUser());
             //values.put(COLUMN_SCORE, historyUser.getScore());
             //historyDB.insert(Config.TBUser.TABLE_NAME, null, values);
+            db.execSQL("INSERT INTO HistoryUser  (User, Score) VALUES('" + historyUser.getNameUser()+"', " + historyUser.getScore() +");");
+            Toast.makeText(mContext, "se lleno la tabla", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(mContext, "ERROR AL LLENAR LA BASE DE DATOS", Toast.LENGTH_SHORT).show();
+        }
+
+        if (db != null) {
+            Toast.makeText(mContext, "se creo la base de datos", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(mContext, "ERROR AL CREAR BASE DE DATOS", Toast.LENGTH_SHORT).show();
+        }
+
+        try {
+            HistoryUser historyUser = new HistoryUser(username, score);
+
+            //ContentValues values = new ContentValues();
+            //values.put(COLUMN_USER, historyUser.getNameUser());
+            //values.put(COLUMN_SCORE, historyUser.getScore());
+            //historyDB.insert(Config.TBUser.TABLE_NAME, null, values);
             db.execSQL("INSERT INTO HistoryUser  (User, Score) VALUES('" + historyUser.getNameUser() + "', " + historyUser.getScore() + ");");
             Toast.makeText(mContext, "se lleno la tabla", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
@@ -66,12 +97,12 @@ public class PuntajeFinalDialog {
         }
     }
 
-    private void finalizar() {
+    private void finalizar(){
         finalScoreDialog.dismiss();
         //Formateo los datos
         //se asigna a prefe el documento llamado data de sharedPreferences
         SharedPreferences prefe = mContext.getSharedPreferences("datos", Context.MODE_PRIVATE);
-        String user = prefe.getString("User", "null");
+        String user = prefe.getString("User", "email");
 
         SharedPreferences.Editor editor = prefe.edit();
         editor.putInt("cont", 1);
@@ -91,8 +122,6 @@ public class PuntajeFinalDialog {
     @SuppressLint("SetTextI18n")
     private void finalScoreValidations(int respuestasCorrectas, int respuestasIncorrectas, int totalRespuestas) // método em el cuál se hace la fórmula del score
     {
-        SharedPreferences prefe = mContext.getSharedPreferences("datos", Context.MODE_PRIVATE);
-        String user = prefe.getString("User", "null");
 
         int puntos, porcentaje;
         txtvwPuntajeFinal = finalScoreDialog.findViewById(R.id.txtvw_puntaje_final); // se le asigna los datos al textview creado en el layout final_score
@@ -108,8 +137,6 @@ public class PuntajeFinalDialog {
 
         txtvwCorrectas.setText(mContext.getString(R.string.correctas_dialog) + respuestasCorrectas);
         txtvwIncorrectas.setText(mContext.getString(R.string.incorrectas_dialog) + respuestasIncorrectas);
-
-        addDataHistoriUser(user, porcentaje);
     }
 }
 
