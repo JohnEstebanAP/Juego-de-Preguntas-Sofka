@@ -3,11 +3,13 @@ Juego de Preguntas Sofka
 
 <div>Puedes descargar El APK instalar la app y probarla:  <a href="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/tree/App_Completa/apk/debug">APK-INSTALL</a></div>
 
+
+<div>Puedes ver el vide de la app en<a href="https://youtu.be/gcNKBUPFBeU">Ver Video</a></div>
 <br>
   
 Notas:
 
-El Reto de Las Preguntas lo Realice Mediante Una App Para Android,
+El Reto de Las Preguntas lo Realizamos Mediante Una App Para Android,
 la Base de datos la realice con SQLite, la cual es una base de datos local.
 versión Mínima de Android: Android 10
 La App tiene autenticación mediante Google por lo que necesita conexión a internet para iniciar sesión.
