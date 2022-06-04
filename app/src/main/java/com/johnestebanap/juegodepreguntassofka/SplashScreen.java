@@ -11,8 +11,26 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.logging.Logger;
+
+/**
+ * [Actividad para mostrar la pantalla de inicio]
+ * Clase que extiende de AppCompatActivity
+ * @version 1.0.0
+ * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+ *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+ * @since Esta presente desde la version 1.0.0
+ */
 public class SplashScreen extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+
+    /**
+     * [Crea la actividad, método de inicio]
+     *
+     * @param savedInstanceState Elemento de tipo Bundle.
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -24,15 +42,23 @@ public class SplashScreen extends AppCompatActivity {
             Thread.sleep(2000);//Para deternerlo durante 2 segundos
         }catch(InterruptedException e){
             e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
-        mAuth = FirebaseAuth.getInstance();
+
     }
 
+
+    /**
+     * [Parte del ciclo de vida de la actividad inicia después del onCreate.]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     @Override
     protected void onStart() {
         super.onStart();
         //Abrimos connexion con firebase y solicitamos si hay un usuario logeado
-        FirebaseUser user = mAuth.getCurrentUser();
 
         //se inicia el SharedPreferences para verificar si hay un usuario logeado por este medio.
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
@@ -44,9 +70,19 @@ public class SplashScreen extends AppCompatActivity {
         } else {
             startActivity(new Intent(this, LoginActivity.class));
         }
-        super.finish();//para finalizar la actividad y no quede en segundo plano avierta por detras luego de avirla otra actividad.
+        //para finalizar la actividad y no quede en segundo plano abierta por
+        //detrás luego de abrirla otra actividad.
+        super.finish();
     }
 
+    /**
+     * [Realiza la transición de la actividad actual a la de showHome..]
+     *
+     * @param email Elemento de tipo String que contiene el nombre o correo del usuario realiza la operación.
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     private void showHome(String email) {
         Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtra("email", email);
