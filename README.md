@@ -1,7 +1,7 @@
 # App Locas Preguntas
 Juego de Preguntas Sofka
 
-<div>Puedes descargar El APK instalar la app y probarla:  <a href="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/tree/master/apk/debug">APK-INSTALL</a></div>
+<div>Puedes descargar El APK instalar la app y probarla:  <a href="https://github.com/JohnEstebanAP/Juego-de-Preguntas-Sofka/tree/master/app/build/outputs/apk/debug">APK-INSTALL</a></div>
 
 
 <div>Puedes ver el vide de la app en: <a href="https://youtu.be/gcNKBUPFBeU"> Ver Video</a></div>
