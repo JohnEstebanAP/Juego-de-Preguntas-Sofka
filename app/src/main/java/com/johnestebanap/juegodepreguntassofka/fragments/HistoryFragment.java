@@ -11,8 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.johnestebanap.juegodepreguntassofka.R;
+import com.johnestebanap.juegodepreguntassofka.db.DbHelper;
+import com.johnestebanap.juegodepreguntassofka.db.DbHelper2;
+import com.johnestebanap.juegodepreguntassofka.db.HistoryUser;
+
+import java.util.ArrayList;
 
 public class HistoryFragment extends Fragment {
+
+    private ArrayList<HistoryUser> historyUsers;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,10 +35,17 @@ public class HistoryFragment extends Fragment {
         LinearLayout lyRecord = view.findViewById(R.id.lyRecord);
 
         TextView txtHistory = new TextView(getContext());
-        txtHistory.setText("Usuario: 0000000");
 
-        lyRecord.addView(txtHistory);
-        
+        for (HistoryUser history : historyUsers) {
+            String user = "Usuario : ".concat(history.getNameUser());
+            txtHistory.setText(user);
+            lyRecord.addView(txtHistory);
+        }
         return view;
+    }
+
+    public void dataBaseInit() {
+        DbHelper2 dbHelper2 = new DbHelper2(getContext());
+        historyUsers = dbHelper2.getUsersAndScore();
     }
 }

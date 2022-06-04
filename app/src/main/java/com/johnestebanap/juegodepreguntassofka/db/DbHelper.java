@@ -9,7 +9,7 @@ import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.COLU
 import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.COLUMN_QUESTION;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.TBQuestions.TABLE_NAME;
 import static com.johnestebanap.juegodepreguntassofka.db.Config.SQL_CREATE_QUESTIONS_TABLE;
-import static com.johnestebanap.juegodepreguntassofka.db.Config.SQL_DELETE_USER;
+import static com.johnestebanap.juegodepreguntassofka.db.Config.SQL_DELETE_QUESTIONS;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -40,7 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         // se elimina la tabla si esta esiste
-        db.execSQL(SQL_DELETE_USER);
+        db.execSQL(SQL_DELETE_QUESTIONS);
         onCreate(db);
     }
 
