@@ -33,6 +33,17 @@ import com.johnestebanap.juegodepreguntassofka.fragments.GameFragment;
 import com.johnestebanap.juegodepreguntassofka.fragments.HistoryFragment;
 import com.johnestebanap.juegodepreguntassofka.fragments.HomeFragment;
 
+/**
+ * [Actividad para mostrar la pantalla de heme activity]
+ * Clase que extiende de AppCompatActivity
+ * En esta clase se crea el menú lateral y el menú de navegación,
+ * además del fragmento donde se mostrará la información.
+ *
+ * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+ * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+ * @version 1.0.0
+ * @since Esta presente desde la version 1.0.0
+ */
 public class HomeActivity extends AppCompatActivity {
 
     MaterialToolbar toolbar;
@@ -43,6 +54,14 @@ public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    /**
+     * [Crea la actividad, método de inicio]
+     *
+     * @param savedInstanceState Elemento de tipo Bundle.
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +76,11 @@ public class HomeActivity extends AppCompatActivity {
         showHome();
 
         // consigo los extras enviados con el Intent y verifico que no se un valor nulo o este vasido
-        if (getIntent().getExtras().getString("email") != null && !TextUtils.isEmpty(getIntent().getExtras().getString("email"))) {
-            String email = getIntent().getExtras().getString("email");
+        if (getIntent().getExtras().getString(getString(R.string.email)) != null && !TextUtils.isEmpty(getIntent().getExtras().getString(String.valueOf(R.string.email)))) {
+            String email = getIntent().getExtras().getString(String.valueOf(R.string.email));
 
             //Es nesesario buscar toda la ruta para encontrar el elemento qeu queremos modificar
-            TextView correoUser= navigationView.getHeaderView(0).findViewById(R.id.nav_header_tvcorreo);
+            TextView correoUser = navigationView.getHeaderView(0).findViewById(R.id.nav_header_tvcorreo);
             correoUser.setText(email);
         }
 
@@ -90,22 +109,21 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         bottomNavigation.setSelectedItemId(R.id.bnv_game);
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.bnv_menu:
-                        showHome();
-                        break;
-                    case R.id.bnv_game:
-                        showGame();
-                        break;
-                    case R.id.bnv_historial:
-                        showRecord();
-                        break;
-                }
-                return true;
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.bnv_menu:
+                    showHome();
+                    break;
+                case R.id.bnv_game:
+                    showGame();
+                    break;
+                case R.id.bnv_historial:
+                    showRecord();
+                    break;
+                default:
+                    break;
             }
+            return true;
         });
 
         mAuth = FirebaseAuth.getInstance();
@@ -117,9 +135,14 @@ public class HomeActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    private void showFragmentGame() {
-    }
 
+    /**
+     * [Método para cerrar la app y desligar al usuario.]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void closeAndDelogearse() {
         Toast.makeText(this, "sesión cerrada", Toast.LENGTH_SHORT).show();
         //borrar datos de secion
@@ -128,18 +151,47 @@ public class HomeActivity extends AppCompatActivity {
         getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit().clear().apply();
     }
 
+    /**
+     * [Realiza el cambio de estado del Fragmento padre reemplazandolo por el fragmento del HomeFragment]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void showHome() {
-       getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HomeFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HomeFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
+
+    /**
+     * [Realiza el cambio de estado del Fragmento padre reemplazandolo por el fragmento del GameFragment]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void showGame() {
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new GameFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 
+    /**
+     * [Realiza el cambio de estado del Fragmento padre reemplazandolo por el fragmento del HistoryFragment]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void showRecord() {
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, new HistoryFragment()).setReorderingAllowed(true).addToBackStack(null).commit();
     }
 
-    //Metodo para mostrar alerta para salir de la app
+
+    /**
+     * [Metodo para mostrar alerta para salir de la app]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     private void showAlerSalir() {
         String title = "¿Esta seguro de querer salir?";
         String message = "Si sale de la aplicacíon perderá todo el progreso y se cancelara la sesion";
@@ -164,12 +216,21 @@ public class HomeActivity extends AppCompatActivity {
 
     //Contador pra medir los milesegundos
     long count1 = 0;
+
+    /**
+     * [Método para controlar las acciones del botón de asia atras del dispositivo.]
+     * Sobreescritura del método
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     @Override
     public void onBackPressed() {
 
         //condifison qeu verifica si el el valor 2000 es mayor a los milisegundos del sistema
-       if (count1 + 2000 > System.currentTimeMillis()) {
-           //close app
+        if (count1 + 2000 > System.currentTimeMillis()) {
+            //close app
             super.finishAffinity();
         } else {
 
