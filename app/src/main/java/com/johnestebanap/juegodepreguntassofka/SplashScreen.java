@@ -62,7 +62,7 @@ public class SplashScreen extends AppCompatActivity {
 
         //se inicia el SharedPreferences para verificar si hay un usuario logeado por este medio.
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
-        String email = prefs.getString("email",null);
+        String email = prefs.getString("User",null);
 
         //verificar si ya hay una cuenta guardada con anterioridad
         if (email != null) {

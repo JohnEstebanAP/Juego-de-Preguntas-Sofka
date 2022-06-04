@@ -5,12 +5,12 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-//import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
@@ -22,13 +22,20 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-//import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-//import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+/**
+ * [Actividad para mostrar la pantalla de login]
+ * Clase que extiende de AppCompatActivity
+ *
+ * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+ * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+ * @version 1.0.0
+ * @since Esta presente desde la version 1.0.0
+ */
 public class LoginActivity extends AppCompatActivity {
 
     //Se Creo una instancia o un ojeto, de la autenticacion de firevase
@@ -38,17 +45,26 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 
-    Button btnEntrar, btnRegistro, btnGoogle;
-
+    Button btnEntrar;
+    Button btnRegistro;
+    Button btnGoogle;
+    /**
+     * [Crea la actividad, método de inicio]
+     *
+     * @param savedInstanceState Elemento de tipo Bundle.
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //a la variable mAuth se Le asina os e inicializa asinandole el ocjeto de La utenticacion de firebase
+        //A la variable mAuth se Le asigna o se inicializa asignando el objeto de La autenticación de firebase
         mAuth = FirebaseAuth.getInstance();
 
-        //se ase una conecion o se instacian los botones creados en el Layout con los botones del codigo
+        //se hace una conexión o se instancian los botones creados en el Layout con los botones del código
         btnEntrar = findViewById(R.id.btn_entrar);
         btnRegistro = findViewById(R.id.registrarse);
         btnGoogle = findViewById(R.id.btn_google);
@@ -57,22 +73,28 @@ public class LoginActivity extends AppCompatActivity {
         EditText ediTxtPassword = findViewById(R.id.txtPassword);
         ediTxtPassword.setText("12345678");
 
-        //Landa para catura el clik del boton para verificar las credenciales y entrar al juego
+        //Landa para capturar el click del botón para verificar las credenciales y entrar al juego
         btnEntrar.setOnClickListener(view -> loginUser());
-        //catura el clik del boton para registrar un usuario nuevo y entrar al juego
+        //captura el click del botón para registrar un usuario nuevo y entrar al juego
         btnRegistro.setOnClickListener(view -> registroUser());
-        //catura el clik del boton para registrar un usuario nuevo con la cuneta de google y entrar al juego
+        //captura el click del botón para registrar un usuario nuevo con la cuenta de google y entrar al juego
         btnGoogle.setOnClickListener(view -> loginUserGoogle());
     }
 
+    /**
+     * [método para que el usuario se loguee mediante google]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void loginUserGoogle() {
         //Configuracion
         GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
         googleClient.signOut();
 
-        //  Metodo deprecado
-        //  startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SING_IN);   onActivityResult(result)
+        //lanza el mensaje para elegir la cuenta de google
         someActivityResultLauncher.launch(googleClient.getSignInIntent());
     }
 
@@ -83,7 +105,6 @@ public class LoginActivity extends AppCompatActivity {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     // There are no request codes
                     //En este metodo no tenemos el requestCode por lo que no podemos hacer uso de el
-                    //if(requestCode == GOOGLE_SING_IN(100)){
 
                     Intent data = result.getData();
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -93,9 +114,10 @@ public class LoginActivity extends AppCompatActivity {
 
                             AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
 
-                            //se envia la creencial del correo electronico de google realisaxondun un reguitro de este correo
-                            //si se puede reguistrar o ya esta reguistrado el task.isSuccessful retorna true y pasa al home, si no se puede registrar o verificar la cuenta
-                            // muestra una alerta de error ya que no se pudo autentica al usuario.
+                            //se envía la credencial del correo electrónico de google realizando un registro de este correo
+                            //si se puede registrar o ya está registrado el task.isSuccessful retorna true y pasa al home, si no se puede registrar o verificar la cuenta
+                            // muestra una alerta de error ya que no se pudo autenticar al usuario.
+
                             FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener(
                                     //Lambda del metodo OnCompleteListener<Authresult>()
                                     task1 -> {
@@ -103,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                                             showHome(account.getEmail());
                                         } else {
                                             showAlertError();
-                                            Log.w("TAG", "Error", task1.getException());
+                                            Log.w("TAG", getString(R.string.error), task1.getException());
                                         }
                                     }
                             );
@@ -114,10 +136,17 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             });
-
+    /**
+     * [método para que el usuario se loguee mediante usuario y contraseña]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     * John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void loginUser() {
         //Creo las variables para los EditText de Usuario y contraseña
-        EditText editTxtUser, ediTxtPassword;
+        EditText editTxtUser;
+        EditText ediTxtPassword;
         //se Relisa la intacia o asignacion de los votones con su corespondiente id
         editTxtUser = findViewById(R.id.txtUser);
         ediTxtPassword = findViewById(R.id.txtPassword);
@@ -137,14 +166,7 @@ public class LoginActivity extends AppCompatActivity {
             ediTxtPassword.requestFocus();
         } else {
 
-            preferences = getSharedPreferences("user", MODE_PRIVATE);
-            editor = preferences.edit();
-            editor.putString("User", email);
-            editor.putString("Pass", "123456789");
-            editor.commit();
             showHome(email);
-
-
             //se envia el correo y la contraseña para verificar si el correo o el usuairo esta reguistrado
             //si esta reguistrado el task.isSuccessful retorna true y pasa al home, si no esta reguistrado
             // muestra una alerta de error ya que no se pudo autentica al usuario.
@@ -168,7 +190,14 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    //Metodo para pasar a al activity del Home
+    /**
+     * [Realiza la transición de la actividad actual a la de showHome..]
+     *
+     * @param email Elemento de tipo String que contiene el nombre o correo del usuario realiza la operación.
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     private void showHome(String email) {
         //se Crea al intent del Home
         Intent intent = new Intent(this, HomeActivity.class);
@@ -176,7 +205,13 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("email", email);
         startActivity(intent);
     }
-
+    /**
+     * [Crea una alerta y la muestra en caso de tener un error  en el login.]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     private void showAlertError() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Error");
@@ -184,7 +219,13 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.setPositiveButton(R.string.aceptar, null);
         alertDialog.create().show();
     }
-
+    /**
+     * [Realiza la transición de la actividad actual a la de Reguistro de usuario.]
+     *
+     * @author Santiago Ospino Osorio - santiago.m200@outlook.es
+     *         John Esteban Alvarez Piedrahita - esteban.ea145@gmail.com
+     * @since [1.0.0]
+     */
     public void registroUser() {
         startActivity(new Intent(this, RegistroActivity.class));
     }
